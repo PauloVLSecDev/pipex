@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 14:25:21 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/06 19:45:01 by pvitor-l         ###   ########.fr       */
+/*   Created: 2024/10/28 18:51:45 by pvitor-l          #+#    #+#             */
+/*   Updated: 2024/10/29 14:29:52 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H 
+#include "libft.h"
 
-# include <stdlib.h> 
-# include <unistd.h> 
-# include <fcntl.h> 
-# include <stdlib.h> 
-# include <stdio.h>
-# include <string.h>
-# include "../libft/libft.h"
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char		*temp_s;
+	size_t				i;
 
-#endif
+	i = 0;
+	temp_s = (unsigned char *)s;
+	if (n == 0)
+		return (NULL);
+	while (i < n)
+	{
+		if (temp_s[i] == (unsigned char)c)
+		{
+			return ((void *)&temp_s[i]);
+		}
+		i++;
+	}
+	return (NULL);
+}

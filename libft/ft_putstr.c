@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 14:25:21 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/06 19:45:01 by pvitor-l         ###   ########.fr       */
+/*   Created: 2024/11/13 15:49:00 by pvitor-l          #+#    #+#             */
+/*   Updated: 2025/01/03 18:30:52 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H 
+#include "libft.h"
 
-# include <stdlib.h> 
-# include <unistd.h> 
-# include <fcntl.h> 
-# include <stdlib.h> 
-# include <stdio.h>
-# include <string.h>
-# include "../libft/libft.h"
+int	ft_putstr(char *s)
+{
+	int	len;
 
-#endif
+	len = 0;
+	if (!s)
+		return (len += ft_putstr("(null)"));
+	while (s[len] != '\0')
+	{
+		ft_putchar(s[len]);
+		len++;
+	}
+	return (len);
+}
