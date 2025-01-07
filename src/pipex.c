@@ -6,10 +6,14 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:20:37 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/04 18:36:07 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:02:10 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-
+char	*pipex(char *argv[])
+{
+	int	fd = open(argv[1], O_RDONLY, 0777);
+	
+}
