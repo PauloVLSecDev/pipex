@@ -6,18 +6,19 @@
 #    By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 18:36:44 by pvitor-l          #+#    #+#              #
-#    Updated: 2025/01/06 19:25:37 by pvitor-l         ###   ########.fr        #
+#    Updated: 2025/01/09 16:59:32 by pvitor-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 CC = cc
 LIB_DIR = libft
 LIB = $(LIB_DIR)/libft.a
 
 SRC = src/pipex.c \
-      src/main.c 
+      src/main.c \
+      src/pipex_functions.c 
 
 $(LIB):
 	@make -C $(LIB_DIR)
