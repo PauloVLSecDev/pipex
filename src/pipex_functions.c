@@ -6,13 +6,13 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:58:40 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/09 21:06:44 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:00:18 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-char	**find_path(char **env)
+char	**ft_find_path(char **env)
 {
 	char	**path;
 
@@ -25,17 +25,17 @@ char	**find_path(char **env)
 	path = ft_split(*env, ':');
 	return (path);
 }
-char	*join_path(char **path, char *cmd)
+char	*ft_join_path(char **path, char *cmd)
 {
 	char	*join_slash;
 	char	*together_all;
 
-	join_slash = ft_join(path, "/");
-	together_all = ft_join(join_slash, cmd);
+	join_slash = ft_strjoin(*path, "/");
+	together_all = ft_strjoin(join_slash, cmd);
 	return (together_all);
 }
 
-void	*validade_command(char **path, char **env, char *cmd);
+void	*ft_validade_command(char **path, char **env, char **cmd)
 {
 	int	i;
 	char	*new_path;
@@ -43,11 +43,10 @@ void	*validade_command(char **path, char **env, char *cmd);
 	
 	while (path[i] != NULL)	
 	{
-		new_path = join_path(path[i], cmd);
+		new_path = ft_join_path(path[i], cmd);
 		if (access(new_path, R_OK | X_OK) == 0)
-			execve(path[i], argv[1], NULL);
+			execve(path[i], cmd, env);
 		free(new_path);
 		i++;
 	}
-	return :
 }
