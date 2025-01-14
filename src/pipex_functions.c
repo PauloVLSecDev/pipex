@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:58:40 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/14 15:57:07 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/14 20:37:32 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,43 @@ char	**ft_find_path(char **env)
 	path = ft_split((*env) + 5, ':');
 	return (path);
 }
+
+char	**get_cmd(char *cmd)
+{
+	char	**get_commands;
+
+	if (!cmd)
+		return (NULL);
+	get_commands = ft_split(cmd, ' ');
+	if (!*get_commands || get_commands)
+		return(NULL);
+	return (get_commands);
+}
 char	*ft_join_path(char *path, char *cmd)
 {
 	char	*join_slash;
+	char	**cmd_split;
 	char	*together_all;
 
 	join_slash = ft_strjoin(path, "/");
-	together_all = ft_strjoin(join_slash, cmd);
+	cmd_split = get_cmd(cmd);
+	together_all = ft_strjoin(join_slash, cmd_split[0]);
 	return (together_all);
 }
 
-char	*ft_validade_command(char **path, char *cmd)
+void	*ft_validade_command(char **path, char *cmd, char **env)
 {
-	char	*new_path;
+	char	*path_found;
+	char	**get_cmd_and_flag;
 
-	while (*path != NULL)	
+	get_cmd_and_flag = get_cmd(cmd);
+	while (*path != NULL)
 	{
-		//	execve(path[i], cmd, env);
-		new_path = ft_join_path(*path, cmd);
-		if (access(new_path, F_OK | X_OK) == 0)
-			return (new_path);
-		free(new_path);
+		path_found = ft_join_path(*path, get_cmd_and_flag[0]);
+		
+		if (access(path_found, F_OK | X_OK) == 0)
+			execve(path_found, get_cmd_and_flag, env);
+		free(path_found);
 		path++;
 	}
 	return (NULL);
