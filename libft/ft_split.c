@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:41:33 by pvitor-l          #+#    #+#             */
-/*   Updated: 2024/11/08 20:39:52 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:17:48 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static	int	ft_count_string(char const *s, char c)
 			count_strings++;
 		}
 		else if (*s == c)
-			boolean = 0;
+			boolean = 1;
 		s++;
 	}
 	return (count_strings);
@@ -41,6 +41,7 @@ static	void	ft_free(char **split, size_t len )
 		len--;
 	}
 	free(split);
+	return ;
 }
 
 static char	*ft_copy(const char *start, size_t len)
@@ -76,8 +77,8 @@ static	void	ft_len_substring(char **result, const char *s, char c)
 			result[count_len] = ft_copy(s + start, size);
 			if (!result[count_len])
 				ft_free(result, count_len);
-		}
 		count_len++;
+		}
 	}
 }
 

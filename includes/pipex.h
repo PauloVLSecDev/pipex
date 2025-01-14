@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:25:21 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/10 19:56:21 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:40:05 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "../libft/libft.h"
 
 char	**ft_find_path(char **env);
-char	*ft_join_path(char **path, char *cmd);
-void	*ft_validade_command(char **path, char **env, char **cmd);
+char	*ft_join_path(char *path, char *cmd);
+char	*ft_validade_command(char **path, char *cmd);
 
 #endif
