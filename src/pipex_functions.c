@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:58:40 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/14 20:37:32 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:54:30 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ char	**get_cmd(char *cmd)
 	if (!cmd)
 		return (NULL);
 	get_commands = ft_split(cmd, ' ');
-	if (!*get_commands || get_commands)
-		return(NULL);
+	if(!get_commands || !*get_commands)
+		return (NULL);
 	return (get_commands);
 }
 char	*ft_join_path(char *path, char *cmd)
