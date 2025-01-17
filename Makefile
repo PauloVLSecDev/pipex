@@ -6,7 +6,7 @@
 #    By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 18:36:44 by pvitor-l          #+#    #+#              #
-#    Updated: 2025/01/09 16:59:32 by pvitor-l         ###   ########.fr        #
+#    Updated: 2025/01/17 15:45:49 by pvitor-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ LIB = $(LIB_DIR)/libft.a
 
 SRC = src/pipex.c \
       src/main.c \
+      src/error.c \
       src/pipex_functions.c 
 
 $(LIB):

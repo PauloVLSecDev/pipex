@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:58:40 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/15 15:54:30 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/17 15:52:19 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_join_path(char *path, char *cmd)
 	return (together_all);
 }
 
-void	*ft_validade_command(char **path, char *cmd, char **env)
+char	*ft_validade_command(char **path, char *cmd)
 {
 	char	*path_found;
 	char	**get_cmd_and_flag;
@@ -60,7 +60,7 @@ void	*ft_validade_command(char **path, char *cmd, char **env)
 		path_found = ft_join_path(*path, get_cmd_and_flag[0]);
 		
 		if (access(path_found, F_OK | X_OK) == 0)
-			execve(path_found, get_cmd_and_flag, env);
+			return(path_found);
 		free(path_found);
 		path++;
 	}
