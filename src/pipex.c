@@ -6,15 +6,16 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:20:37 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/09 16:24:51 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/19 15:17:56 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include "../includes/pipex.h"
 
-char	*pipex(char *argv[])
+void	childrin_process(int childrin)
 {
-	int	fd = open(argv[1], O_RDONLY, 0777);
+	pid_t pid[2];
+	
+
 }
-*/
+
