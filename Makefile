@@ -6,7 +6,7 @@
 #    By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 18:36:44 by pvitor-l          #+#    #+#              #
-#    Updated: 2025/01/17 15:45:49 by pvitor-l         ###   ########.fr        #
+#    Updated: 2025/01/22 19:01:00 by pvitor-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,10 @@ CC = cc
 LIB_DIR = libft
 LIB = $(LIB_DIR)/libft.a
 
-SRC = src/pipex.c \
-      src/main.c \
+SRC = src/main.c \
       src/error.c \
+      src/exec.c \
       src/pipex_functions.c 
-
-$(LIB):
-	@make -C $(LIB_DIR)
 
 OBJ = $(SRC:.c=.o)
 
@@ -34,6 +31,8 @@ $(NAME): $(OBJ)	$(LIB)
 %.o: %.c
 	$(CC) $(FLAGS) -I includes -c $< -o $@
 
+$(LIB):
+	@make -C $(LIB_DIR)
 clean:
 	rm -rf $(OBJ)
 	@make clean -C $(LIB_DIR)
