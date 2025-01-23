@@ -1,1 +1,10 @@
-10
+includes
+libft
+Makefile
+outfile.txt
+pipex
+QT_ACCESSIBILITY=1
+socorro.txt
+src
+teste_trigo.sh
+teste.txt
