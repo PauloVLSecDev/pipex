@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 19:41:36 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/23 19:56:02 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:39:50 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main (int argc, char *argv[], char **env)
 		exit_with_menssage("error in function pipe", 111);
 	pid = fork();
 	if (pid == 0)
-		childrin_process(pipe_fd, argv, env);//child
+		child_process(pipe_fd, argv, env);//child
 	else if (pid == 1)
 	{
 		waitpid(pid, &status, 0); 

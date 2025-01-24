@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:49:30 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/23 19:56:49 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:40:12 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	parent_process(int *p_fd, char **argv, char **env)
 
 }
 
-void	childrin_process(int *p_fd, char **argv, char **env)
+void	child_process(int *p_fd, char **argv, char **env)
 {
 	char **cmd2_with_flag;
 	char *path;

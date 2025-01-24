@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:25:21 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/23 19:38:49 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:40:43 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ char	**split_cmd(char *cmd);
 void		exit_with_menssage(char *menssage, int	exit_code);
 void	args_error(int	exit_code);
 void	parent_process(int *p_fd, char **argv, char **env);
-void	childrin_process(int *p_fd, char **argv, char **env);
+void	child_process(int *p_fd, char **argv, char **env);
 void	exit_with_menssage(char *menssage, int	exit_code);
 #endif
