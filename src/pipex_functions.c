@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:58:40 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/22 19:01:33 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:10:30 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static char	*ft_join_path(char *path, char *cmd)
 	join_slash = ft_strjoin(path, "/");
 	cmd_split = split_cmd(cmd);
 	together_all = ft_strjoin(join_slash, cmd_split[0]);
+	free(cmd_split);
+	free(join_slash);
 	return (together_all);
 }
 

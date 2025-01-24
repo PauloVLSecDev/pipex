@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:49:30 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/24 15:40:12 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:06:58 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,14 @@ void	parent_process(int *p_fd, char **argv, char **env)
 		exit_with_menssage("dup error in first process", EXIT_FAILURE);
 	close(out_fd);
 	close(p_fd[0]);
-	close(p_fd[1]);
 	splited_cmd = split_cmd(argv[3]);
 	path = ft_validade_command(ft_find_path(env), argv[3]);
 	if (execve(path, splited_cmd, env) == -1)
-	{	
+	{
 		free(path);
 		exit(EXIT_FAILURE);
 	}
 	free(path);
-
 }
 
 void	child_process(int *p_fd, char **argv, char **env)
@@ -60,9 +58,8 @@ void	child_process(int *p_fd, char **argv, char **env)
 		exit_with_menssage("dup error in second process", EXIT_FAILURE);
 	close(in_fd); 
 	close(p_fd[1]);
-	close(p_fd[0]);
-	cmd2_with_flag = split_cmd(argv[3]);
-	path = ft_validade_command(ft_find_path(env), argv[3]);
+	cmd2_with_flag = split_cmd(argv[2]);
+	path = ft_validade_command(ft_find_path(env), argv[2]);
 	if (execve(path, cmd2_with_flag, env) == -1)
 	{
 		free(path);
