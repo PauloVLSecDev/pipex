@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 19:41:36 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/24 20:05:07 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/27 21:17:36 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main (int argc, char *argv[], char **env)
 	pid_t	pid;
 
 	if(argc != 5)
-		exit_with_menssage("erro nos parametros passados", 2);
+		exit_code("expectade: infd1, cmd cmd2 outfd", 2);
 	if (pipe(pipe_fd) == -1)
-		exit_with_menssage("error in function pipe", 111);
+		exit_code("error in function pipe", 111);
 	pid = fork();
 	if (pid == 0)
 		child_process(pipe_fd, argv, env);

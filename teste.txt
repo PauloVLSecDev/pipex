@@ -1,7 +1,8 @@
-eu
-quero 
-saber 
-como esse comando
-chamado wc
-junto da flag -w 
-vai saber quantas palavras tem dentro desse texto. vou querer saber quantas vezes a palavra palavra foi listada
+Makefile
+includes
+libft
+nopermissionfile.txt
+outfile.txt
+pipex
+src
+teste.txt
