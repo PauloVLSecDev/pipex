@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:58:40 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/27 20:34:36 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:39:25 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,10 @@ char	**split_cmd(char *cmd)
 static char	*ft_join_path(char *path, char *cmd)
 {
 	char	*join_slash;
-	char	**cmd_split;
 	char	*together_all;
 
 	join_slash = ft_strjoin(path, "/");
-	cmd_split = split_cmd(cmd);
-	together_all = ft_strjoin(join_slash, cmd_split[0]);
-	free(cmd_split);
+	together_all = ft_strjoin(join_slash, cmd);
 	free(join_slash);
 	return (together_all);
 }
@@ -58,7 +55,7 @@ char	*ft_validade_command(char **path, char *cmd)
 {
 	char	*path_found;
 	char	**get_cmd_and_flag;
-
+	
 	get_cmd_and_flag = split_cmd(cmd);
 	while (*path != NULL)
 	{
@@ -69,5 +66,6 @@ char	*ft_validade_command(char **path, char *cmd)
 		path++;
 	}
 	free(get_cmd_and_flag);
+	exit_code("command not found", 127);
 	return (NULL);
 }

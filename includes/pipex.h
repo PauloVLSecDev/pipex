@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:25:21 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/01/27 21:15:54 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:23:29 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char	**ft_find_path(char **env);
 char	*ft_validade_command(char **path, char *cmd);
 char	**split_cmd(char *cmd);
 void		exit_code(char *menssage, int	exit_code);
-void	check_permission_infile(char *argv);
-void	check_permission_outfile(char *argv);
+int	check_permission_infile(char *argv);
+int	check_permission_outfile(char *argv);
 void	parent_process(int *pfd, char **argv, char **env);
 void	child_process(int *pfd, char **argv, char **env);
 void	exit_with_menssage(char *menssage, int	exit_code);
