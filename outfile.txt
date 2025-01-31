@@ -1,14 +1,1 @@
-Makefile
-aaaaa.txt
-cat
-includes
-libft
-moni.sh
-nopermissionfile.txt
-outfile
-outfile.txt
-outfile_exit_teste.txt
-pipex
-src
-teste.txt
-valgrind-out.txt
+6

@@ -6,3 +6,10 @@ outfile.txt
 pipex
 src
 teste.txt
+isso
+quero
+quero
+quero
+quero
+quero
+quero

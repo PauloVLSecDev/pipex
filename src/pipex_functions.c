@@ -23,6 +23,11 @@ char	**ft_find_path(char **env)
 	if (!*env)
 		return (NULL);
 	path = ft_split((*env) + 5, ':');
+	if (!path)
+	{
+		ft_printf("find path error");
+		return (NULL);
+	}
 	return (path);
 }
 
@@ -33,11 +38,8 @@ char	**split_cmd(char *cmd)
 	if (!cmd)
 		return (NULL);
 	get_commands = ft_split(cmd, ' ');
-	if(!get_commands || !*get_commands)
-	{
-		free(get_commands);
+	if(!get_commands)
 		return (NULL);
-	}
 	return (get_commands);
 }
 static char	*ft_join_path(char *path, char *cmd)
@@ -46,26 +48,33 @@ static char	*ft_join_path(char *path, char *cmd)
 	char	*together_all;
 
 	join_slash = ft_strjoin(path, "/");
+	if (!join_slash)
+		return (NULL);
 	together_all = ft_strjoin(join_slash, cmd);
 	free(join_slash);
+	if (!together_all)
+		return (NULL);
 	return (together_all);
 }
 
 char	*ft_validade_command(char **path, char *cmd)
 {
 	char	*path_found;
-	char	**get_cmd_and_flag;
+	char	**get_cmd;
 	
-	get_cmd_and_flag = split_cmd(cmd);
+	get_cmd = split_cmd(cmd);
+	if (!get_cmd)
+		return (NULL);
 	while (*path != NULL)
 	{
-		path_found = ft_join_path(*path, get_cmd_and_flag[0]);
+		path_found = ft_join_path(*path, get_cmd[0]);
+		if (!path_found)
+			return(free(get_cmd), NULL);
 		if (access(path_found, F_OK | X_OK) == 0)
-			return(path_found);
+			return(free(get_cmd), path_found);
 		free(path_found);
 		path++;
 	}
-	free(get_cmd_and_flag);
-	exit_code("command not found", 127);
+	free(get_cmd);
 	return (NULL);
 }

@@ -16,20 +16,25 @@ int	main (int argc, char *argv[], char **env)
 {
 	int	pipe_fd[2];
 	pid_t	pid;
+	int	status;
 
 	if(argc != 5)
 		exit_code("expectade: infile, cmd cmd2 outfile", 2);
 	if (pipe(pipe_fd) == -1)
-		exit_code("error in function pipe", 111);
+		exit_code("error in function pipe", 1);
 	pid = fork();
 	if (pid == -1)
-		exit_code("pid filed", 1);
+		exit_code("fork failed", 1);
 	if (pid == 0)
+	{
+		close(pipe_fd[0]);
 		child_process(pipe_fd, argv, env);
+	}
 	else if (pid > 0)
 	{
-		waitpid(pid, NULL, 0); 
+		close(pipe_fd[1]);
 		parent_process(pipe_fd, argv,  env);
+		waitpid(pid, &status, 0); 
 	}
 	return (0);
 }

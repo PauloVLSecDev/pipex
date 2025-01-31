@@ -19,7 +19,7 @@ int check_permission_infile(char *argv)
 	if (access(argv, F_OK) == -1)
 	{
 		ft_printf("%s No such file or directory\n", argv);
-		return (0);
+		return (2);
 	}
 	if (access(argv, R_OK) == -1)
 	{
@@ -40,7 +40,7 @@ int	check_permission_outfile(char *argv)
 		}
 		else
 			ft_printf("%s No such file or directory\n", argv);
-		return (1);
+		return (0);
 	}
 	if (access(argv, W_OK | F_OK) == -1)
 	{
