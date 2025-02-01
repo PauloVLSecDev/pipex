@@ -11,47 +11,72 @@
 /* ************************************************************************** */
 
 # include "../includes/pipex.h"
-# include <stdio.h>
 
-int check_permission_infile(char *argv)
+int	cmd_exist(char *cmd, char **env)
+{
+	char *cmd_args;
+
+	if (!cmd || !*cmd)
+		return (127);
+	cmd_args = ft_validade_command(ft_find_path(env), cmd);
+	if (!cmd_args || !cmd_args[0])
+		return(127);
+	return (0);
+}
+int check_permission_infile(char *infile)
 {
 	//infile need only permission for read
-	if (access(argv, F_OK) == -1)
+	if (access(infile, F_OK) == -1)
 	{
-		ft_printf("%s No such file or directory\n", argv);
+		ft_putstr_fd(infile, 2);
+		ft_putstr_fd(": No such file or directory\n", 2);
 		return (2);
 	}
-	if (access(argv, R_OK) == -1)
+	if (access(infile, R_OK) == -1)
 	{
-		ft_printf("%s Permission denied\n", argv);
+		ft_putstr_fd(infile, 2);
+		ft_putstr_fd(": Permission denied\n", 2);
 		return (1);
 	}
 	return (0);
 }
 
-int	check_permission_outfile(char *argv)
+int	check_permission_outfile(char *outfile)
 {
-	if (access(argv, F_OK) == -1)
+	if (access(outfile, F_OK) == -1)
 	{
-		if (ft_strncmp(argv, "/", ft_strlen(argv)) == 0)
+		if (ft_strncmp(outfile, "/", ft_strlen(outfile)) == 0)
 		{
-			ft_printf("%s Is directory\n", argv);
+			ft_putstr_fd(outfile, 2);
+			ft_putstr_fd(": Is directory \n", 2);
 			return (1);
 		}
 		else
-			ft_printf("%s No such file or directory\n", argv);
+		{
+			ft_putstr_fd(outfile, 2);
+			ft_putstr_fd(": No such file or directory\n", 2);
+		}
 		return (0);
 	}
-	if (access(argv, W_OK | F_OK) == -1)
+	if (access(outfile, W_OK | F_OK) == -1)
 	{
-		ft_printf("%s Permission denied\n", argv);
+		ft_putstr_fd(outfile, 2);
+		ft_putstr_fd(": Permission denied\n", 2);
 		return (1);
 	}
 	return (0);
 }
-void	exit_code(char *menssage, int	code)
+void	exit_code(char *menssage, int	code, char *cmd)
 {
+	if (code == 127)
+	{
+		ft_putstr_fd(cmd, 2);
+		ft_putstr_fd(": Command not found\n", 2);
+	}
 	if (menssage)
-		ft_printf("%s\n", menssage);
+	{
+		ft_putstr_fd(menssage, 2);
+		ft_putstr_fd("\n", 2);
+	}
 	exit(code);
 }

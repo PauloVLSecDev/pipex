@@ -45,6 +45,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
 void	ft_putendl_fd(char *s, int fd);
+void	ft_putstr_fd(char *str, int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);

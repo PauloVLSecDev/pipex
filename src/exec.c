@@ -20,16 +20,16 @@ void	child_process(int *pfd, char **argv, char **env)
 	
 	if (check_permission_infile(argv[1]) != 0)
 		exit(1);
+	if (cmd_exist(argv[2], env) == 127)
+		exit_code(NULL, 127, argv[2]);
 	ifd = open(argv[1], O_RDONLY);
 	if (ifd == -1)
-		exit_code(NULL, EXIT_FAILURE);
+		exit_code(NULL, EXIT_FAILURE, NULL);
 	if (dup2(ifd, STDIN_FILENO) == -1 || dup2(pfd[1], STDOUT_FILENO) == -1)
-		exit_code("dup error in child process", EXIT_FAILURE);
+		exit_code("dup error in child process", EXIT_FAILURE, NULL);
 	close(ifd); 
 	close(pfd[1]);
 	cmd1_with_flag = split_cmd(argv[2]);
-	if (!cmd1_with_flag)
-		exit_code("command not found", 127);
 	path = ft_validade_command(ft_find_path(env), argv[2]);
 	if (execve(path, cmd1_with_flag, env) == -1)
 	{
@@ -46,17 +46,17 @@ void	parent_process(int *pfd, char **argv, char **env)
 	int	ofd;
 	
 	if (check_permission_outfile(argv[4]) != 0)
-		exit(127);
+		exit(1);
+	if (cmd_exist(argv[3], env) == 127)
+		exit_code(NULL, 127, argv[3]);
 	ofd = open(argv[4], O_WRONLY | O_TRUNC | O_CREAT, 0644);
 	if (ofd == -1)
-		exit_code(NULL, EXIT_FAILURE);
+		exit_code(NULL, EXIT_FAILURE, NULL);
 	if (dup2(pfd[0], STDIN_FILENO) == -1 || dup2(ofd, STDOUT_FILENO) == -1)
-		exit_code("dup error in parent process", EXIT_FAILURE);
+		exit_code("dup error in parent process", EXIT_FAILURE, NULL);
 	close(ofd);
 	close(pfd[0]);
 	cmd2_with_flag = split_cmd(argv[3]);
-	if (!cmd2_with_flag)
-		exit_code("command not found", 127);
 	path = ft_validade_command(ft_find_path(env), argv[3]);
 	if (execve(path, cmd2_with_flag, env) == -1)
 	{

@@ -26,10 +26,10 @@
 char	**ft_find_path(char **env);
 char	*ft_validade_command(char **path, char *cmd);
 char	**split_cmd(char *cmd);
-void		exit_code(char *menssage, int	exit_code);
-int	check_permission_infile(char *argv);
-int	check_permission_outfile(char *argv);
+int	check_permission_infile(char *infile);
+int	check_permission_outfile(char *outfile);
 void	parent_process(int *pfd, char **argv, char **env);
 void	child_process(int *pfd, char **argv, char **env);
-void	exit_with_menssage(char *menssage, int	exit_code);
+void	exit_code(char *menssage, int code, char *cmd);
+int	cmd_exist(char *cmd, char **env);
 #endif
