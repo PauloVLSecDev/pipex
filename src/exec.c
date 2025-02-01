@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:49:30 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/02/01 16:09:17 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/02/01 17:10:21 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	child_process(int *pfd, char **argv, char **env)
 	path = ft_validade_command(ft_find_path(env), argv[2]);
 	if (execve(path, cmd1_with_flag, env) == -1)
 	{
+		ft_free_split(cmd1_with_flag);
 		free(path);
 		exit(127);
 	}
@@ -57,11 +58,34 @@ void	parent_process(int *pfd, char **argv, char **env)
 	close(ofd);
 	close(pfd[0]);
 	cmd2_with_flag = split_cmd(argv[3]);
-	path = ft_validade_command(ft_find_path(env), argv[3]);
+	path = get_valid_path(env, argv[3]);
 	if (execve(path, cmd2_with_flag, env) == -1)
 	{
+		ft_free_split(cmd2_with_flag);
 		free(path);
 		exit(127);
 	}
 	free(path);
 }
+char	*get_valid_path(char **env, char *cmd)
+{
+	char    **path_dirs;
+	char    *path;
+
+	path_dirs = ft_find_path(env);
+	path = ft_validade_command(path_dirs, cmd);
+	ft_free_split(path_dirs);
+	return (path);
+}
+
+void	ft_free_split(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
+}
+
+
