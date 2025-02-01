@@ -2,975 +2,1146 @@
 TEST: 1
 --------------------------------------------------------------------------------
 
-==2461== Memcheck, a memory error detector
-==2461== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2461== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2461== Command: ./pipex Makefile /cat/ grepppp\ CC outfile
-==2461== 
-==2461== 
-==2461== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2461== Open file descriptor 3:
-==2461==    at 0x497A41D: pipe (pipe.c:29)
-==2461==    by 0x109319: main (main.c:23)
-==2461== 
-==2461== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2461==    <inherited from parent>
-==2461== 
-==2461== 
-==2461== HEAP SUMMARY:
-==2461==     in use at exit: 606 bytes in 23 blocks
-==2461==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2461== 
-==2462== 
-==2462== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2462== Open file descriptor 4:
-==2461== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2461==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2461==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462==    at 0x497A41D: pipe (pipe.c:29)
-==2461==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462==    by 0x109319: main (main.c:23)
-==2461==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462== 
-==2461==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2462== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2461==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2462==    <inherited from parent>
-==2461==    by 0x10942A: cmd_exist (error.c:21)
-==2462== 
-==2461==    by 0x10983E: parent_process (exec.c:50)
-==2462== 
-==2461==    by 0x1093AE: main (main.c:36)
-==2461== 
-==2462== HEAP SUMMARY:
-==2462==     in use at exit: 601 bytes in 22 blocks
-==2462==   total heap usage: 63 allocs, 41 frees, 1,611 bytes allocated
-==2462== 
-==2461== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2461==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2461==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2461==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2461==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2461==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2461==    by 0x109418: cmd_exist (error.c:21)
-==2461==    by 0x10983E: parent_process (exec.c:50)
-==2461==    by 0x1093AE: main (main.c:36)
-==2461== 
-==2461== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2461==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2461==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2461==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2461==    by 0x109418: cmd_exist (error.c:21)
-==2461==    by 0x10983E: parent_process (exec.c:50)
-==2461==    by 0x1093AE: main (main.c:36)
-==2461== 
-==2461== LEAK SUMMARY:
-==2461==    definitely lost: 179 bytes in 3 blocks
-==2461==    indirectly lost: 427 bytes in 20 blocks
-==2461==      possibly lost: 0 bytes in 0 blocks
-==2461==    still reachable: 0 bytes in 0 blocks
-==2461==         suppressed: 0 bytes in 0 blocks
-==2461== 
-==2461== For lists of detected and suppressed errors, rerun with: -s
-==2461== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-==2462== 6 bytes in 1 blocks are definitely lost in loss record 1 of 3
-==2462==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2462==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2462==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2462==    by 0x10942A: cmd_exist (error.c:21)
-==2462==    by 0x1096A9: child_process (exec.c:23)
-==2462==    by 0x109385: main (main.c:31)
-==2462== 
-==2462== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2462==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2462==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2462==    by 0x109418: cmd_exist (error.c:21)
-==2462==    by 0x1096A9: child_process (exec.c:23)
-==2462==    by 0x109385: main (main.c:31)
-==2462== 
-==2462== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2462==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2462==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2462==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2462==    by 0x109418: cmd_exist (error.c:21)
-==2462==    by 0x1096A9: child_process (exec.c:23)
-==2462==    by 0x109385: main (main.c:31)
-==2462== 
-==2462== LEAK SUMMARY:
-==2462==    definitely lost: 174 bytes in 2 blocks
-==2462==    indirectly lost: 427 bytes in 20 blocks
-==2462==      possibly lost: 0 bytes in 0 blocks
-==2462==    still reachable: 0 bytes in 0 blocks
-==2462==         suppressed: 0 bytes in 0 blocks
-==2462== 
-==2462== For lists of detected and suppressed errors, rerun with: -s
-==2462== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364961== Memcheck, a memory error detector
+==1364961== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1364961== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1364961== Command: ./pipex Makefile /cat/ grepppp\ CC outfile
+==1364961== 
+==1364961== 
+==1364961== FILE DESCRIPTORS: 5 open at exit.
+==1364961== Open file descriptor 3:
+==1364961==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364961==    by 0x401224: main (main.c:23)
+==1364961== 
+==1364961== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364961==    <inherited from parent>
+==1364961== 
+==1364961== Open file descriptor 2: /dev/pts/0
+==1364961==    <inherited from parent>
+==1364961== 
+==1364961== Open file descriptor 1: /dev/pts/0
+==1364961==    <inherited from parent>
+==1364961== 
+==1364961== Open file descriptor 0: /dev/pts/0
+==1364961==    <inherited from parent>
+==1364961== 
+==1364961== 
+==1364961== HEAP SUMMARY:
+==1364961==     in use at exit: 362 bytes in 16 blocks
+==1364961==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1364961== 
+==1364961== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1364961==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364961==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364961==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364961==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364961==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364961==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364961==    by 0x401328: cmd_exist (error.c:21)
+==1364961==    by 0x401754: parent_process (exec.c:50)
+==1364961==    by 0x4012BA: main (main.c:36)
+==1364961== 
+==1364961== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364961==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364961==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364961==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364961==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364961==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364961==    by 0x40131C: cmd_exist (error.c:21)
+==1364961==    by 0x401754: parent_process (exec.c:50)
+==1364961==    by 0x4012BA: main (main.c:36)
+==1364961== 
+==1364961== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364961==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364961==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364961==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364961==    by 0x40131C: cmd_exist (error.c:21)
+==1364961==    by 0x401754: parent_process (exec.c:50)
+==1364961==    by 0x4012BA: main (main.c:36)
+==1364961== 
+==1364961== LEAK SUMMARY:
+==1364961==    definitely lost: 123 bytes in 3 blocks
+==1364961==    indirectly lost: 239 bytes in 13 blocks
+==1364961==      possibly lost: 0 bytes in 0 blocks
+==1364961==    still reachable: 0 bytes in 0 blocks
+==1364961==         suppressed: 0 bytes in 0 blocks
+==1364961== 
+==1364961== For lists of detected and suppressed errors, rerun with: -s
+==1364961== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364962== 
+==1364962== FILE DESCRIPTORS: 5 open at exit.
+==1364962== Open file descriptor 4:
+==1364962==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364962==    by 0x401224: main (main.c:23)
+==1364962== 
+==1364962== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364962==    <inherited from parent>
+==1364962== 
+==1364962== Open file descriptor 2: /dev/pts/0
+==1364962==    <inherited from parent>
+==1364962== 
+==1364962== Open file descriptor 1: /dev/pts/0
+==1364962==    <inherited from parent>
+==1364962== 
+==1364962== Open file descriptor 0: /dev/pts/0
+==1364962==    <inherited from parent>
+==1364962== 
+==1364962== 
+==1364962== HEAP SUMMARY:
+==1364962==     in use at exit: 357 bytes in 15 blocks
+==1364962==   total heap usage: 42 allocs, 27 frees, 942 bytes allocated
+==1364962== 
+==1364962== 6 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==1364962==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364962==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364962==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364962==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364962==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364962==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364962==    by 0x401328: cmd_exist (error.c:21)
+==1364962==    by 0x4015F4: child_process (exec.c:23)
+==1364962==    by 0x401292: main (main.c:31)
+==1364962== 
+==1364962== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364962==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364962==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364962==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364962==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364962==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364962==    by 0x40131C: cmd_exist (error.c:21)
+==1364962==    by 0x4015F4: child_process (exec.c:23)
+==1364962==    by 0x401292: main (main.c:31)
+==1364962== 
+==1364962== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364962==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364962==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364962==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364962==    by 0x40131C: cmd_exist (error.c:21)
+==1364962==    by 0x4015F4: child_process (exec.c:23)
+==1364962==    by 0x401292: main (main.c:31)
+==1364962== 
+==1364962== LEAK SUMMARY:
+==1364962==    definitely lost: 118 bytes in 2 blocks
+==1364962==    indirectly lost: 239 bytes in 13 blocks
+==1364962==      possibly lost: 0 bytes in 0 blocks
+==1364962==    still reachable: 0 bytes in 0 blocks
+==1364962==         suppressed: 0 bytes in 0 blocks
+==1364962== 
+==1364962== For lists of detected and suppressed errors, rerun with: -s
+==1364962== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -e 
 TEST: 2
 --------------------------------------------------------------------------------
 
-==2468== Memcheck, a memory error detector
-==2468== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2468== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2468== Command: ./pipex Makefile ./cat/ grepppp\ CC outfile
-==2468== 
-==2469== 
-==2469== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2469== Open file descriptor 4:
-==2469==    at 0x497A41D: pipe (pipe.c:29)
-==2469==    by 0x109319: main (main.c:23)
-==2469== 
-==2469== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2469==    <inherited from parent>
-==2469== 
-==2469== 
-==2469== HEAP SUMMARY:
-==2469==     in use at exit: 602 bytes in 22 blocks
-==2469==   total heap usage: 63 allocs, 41 frees, 1,632 bytes allocated
-==2469== 
-==2469== 7 bytes in 1 blocks are definitely lost in loss record 1 of 3
-==2469==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2469==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2469==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2469==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2469==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2469==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2469==    by 0x10942A: cmd_exist (error.c:21)
-==2469==    by 0x1096A9: child_process (exec.c:23)
-==2469==    by 0x109385: main (main.c:31)
-==2469== 
-==2469== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2469==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2469==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2469==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2469==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2469==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2469==    by 0x109418: cmd_exist (error.c:21)
-==2469==    by 0x1096A9: child_process (exec.c:23)
-==2469==    by 0x109385: main (main.c:31)
-==2469== 
-==2469== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2469==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2469==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2469==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2469==    by 0x109418: cmd_exist (error.c:21)
-==2469==    by 0x1096A9: child_process (exec.c:23)
-==2469==    by 0x109385: main (main.c:31)
-==2469== 
-==2469== LEAK SUMMARY:
-==2469==    definitely lost: 175 bytes in 2 blocks
-==2469==    indirectly lost: 427 bytes in 20 blocks
-==2469==      possibly lost: 0 bytes in 0 blocks
-==2469==    still reachable: 0 bytes in 0 blocks
-==2469==         suppressed: 0 bytes in 0 blocks
-==2469== 
-==2469== For lists of detected and suppressed errors, rerun with: -s
-==2469== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-==2468== 
-==2468== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2468== Open file descriptor 3:
-==2468==    at 0x497A41D: pipe (pipe.c:29)
-==2468==    by 0x109319: main (main.c:23)
-==2468== 
-==2468== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2468==    <inherited from parent>
-==2468== 
-==2468== 
-==2468== HEAP SUMMARY:
-==2468==     in use at exit: 606 bytes in 23 blocks
-==2468==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2468== 
-==2468== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2468==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2468==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2468==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2468==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2468==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2468==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2468==    by 0x10942A: cmd_exist (error.c:21)
-==2468==    by 0x10983E: parent_process (exec.c:50)
-==2468==    by 0x1093AE: main (main.c:36)
-==2468== 
-==2468== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2468==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2468==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2468==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2468==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2468==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2468==    by 0x109418: cmd_exist (error.c:21)
-==2468==    by 0x10983E: parent_process (exec.c:50)
-==2468==    by 0x1093AE: main (main.c:36)
-==2468== 
-==2468== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2468==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2468==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2468==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2468==    by 0x109418: cmd_exist (error.c:21)
-==2468==    by 0x10983E: parent_process (exec.c:50)
-==2468==    by 0x1093AE: main (main.c:36)
-==2468== 
-==2468== LEAK SUMMARY:
-==2468==    definitely lost: 179 bytes in 3 blocks
-==2468==    indirectly lost: 427 bytes in 20 blocks
-==2468==      possibly lost: 0 bytes in 0 blocks
-==2468==    still reachable: 0 bytes in 0 blocks
-==2468==         suppressed: 0 bytes in 0 blocks
-==2468== 
-==2468== For lists of detected and suppressed errors, rerun with: -s
-==2468== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364968== Memcheck, a memory error detector
+==1364968== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1364968== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1364968== Command: ./pipex Makefile ./cat/ grepppp\ CC outfile
+==1364968== 
+==1364973== 
+==1364973== FILE DESCRIPTORS: 5 open at exit.
+==1364973== Open file descriptor 4:
+==1364973==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364973==    by 0x401224: main (main.c:23)
+==1364973== 
+==1364973== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364973==    <inherited from parent>
+==1364973== 
+==1364973== Open file descriptor 2: /dev/pts/0
+==1364973==    <inherited from parent>
+==1364973== 
+==1364973== Open file descriptor 1: /dev/pts/0
+==1364973==    <inherited from parent>
+==1364973== 
+==1364973== Open file descriptor 0: /dev/pts/0
+==1364973==    <inherited from parent>
+==1364973== 
+==1364973== 
+==1364973== HEAP SUMMARY:
+==1364973==     in use at exit: 358 bytes in 15 blocks
+==1364973==   total heap usage: 42 allocs, 27 frees, 956 bytes allocated
+==1364973== 
+==1364973== 7 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==1364973==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364973==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364973==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364973==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364973==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364973==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364973==    by 0x401328: cmd_exist (error.c:21)
+==1364973==    by 0x4015F4: child_process (exec.c:23)
+==1364973==    by 0x401292: main (main.c:31)
+==1364973== 
+==1364973== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364973==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364973==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364973==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364973==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364973==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364973==    by 0x40131C: cmd_exist (error.c:21)
+==1364973==    by 0x4015F4: child_process (exec.c:23)
+==1364973==    by 0x401292: main (main.c:31)
+==1364973== 
+==1364973== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364973==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364973==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364973==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364973==    by 0x40131C: cmd_exist (error.c:21)
+==1364973==    by 0x4015F4: child_process (exec.c:23)
+==1364973==    by 0x401292: main (main.c:31)
+==1364973== 
+==1364973== LEAK SUMMARY:
+==1364973==    definitely lost: 119 bytes in 2 blocks
+==1364973==    indirectly lost: 239 bytes in 13 blocks
+==1364973==      possibly lost: 0 bytes in 0 blocks
+==1364973==    still reachable: 0 bytes in 0 blocks
+==1364973==         suppressed: 0 bytes in 0 blocks
+==1364973== 
+==1364973== For lists of detected and suppressed errors, rerun with: -s
+==1364973== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364968== 
+==1364968== FILE DESCRIPTORS: 5 open at exit.
+==1364968== Open file descriptor 3:
+==1364968==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364968==    by 0x401224: main (main.c:23)
+==1364968== 
+==1364968== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364968==    <inherited from parent>
+==1364968== 
+==1364968== Open file descriptor 2: /dev/pts/0
+==1364968==    <inherited from parent>
+==1364968== 
+==1364968== Open file descriptor 1: /dev/pts/0
+==1364968==    <inherited from parent>
+==1364968== 
+==1364968== Open file descriptor 0: /dev/pts/0
+==1364968==    <inherited from parent>
+==1364968== 
+==1364968== 
+==1364968== HEAP SUMMARY:
+==1364968==     in use at exit: 362 bytes in 16 blocks
+==1364968==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1364968== 
+==1364968== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1364968==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364968==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364968==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364968==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364968==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364968==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364968==    by 0x401328: cmd_exist (error.c:21)
+==1364968==    by 0x401754: parent_process (exec.c:50)
+==1364968==    by 0x4012BA: main (main.c:36)
+==1364968== 
+==1364968== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364968==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364968==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364968==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364968==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364968==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364968==    by 0x40131C: cmd_exist (error.c:21)
+==1364968==    by 0x401754: parent_process (exec.c:50)
+==1364968==    by 0x4012BA: main (main.c:36)
+==1364968== 
+==1364968== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364968==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364968==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364968==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364968==    by 0x40131C: cmd_exist (error.c:21)
+==1364968==    by 0x401754: parent_process (exec.c:50)
+==1364968==    by 0x4012BA: main (main.c:36)
+==1364968== 
+==1364968== LEAK SUMMARY:
+==1364968==    definitely lost: 123 bytes in 3 blocks
+==1364968==    indirectly lost: 239 bytes in 13 blocks
+==1364968==      possibly lost: 0 bytes in 0 blocks
+==1364968==    still reachable: 0 bytes in 0 blocks
+==1364968==         suppressed: 0 bytes in 0 blocks
+==1364968== 
+==1364968== For lists of detected and suppressed errors, rerun with: -s
+==1364968== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -e 
 TEST: 3
 --------------------------------------------------------------------------------
 
-==2475== Memcheck, a memory error detector
-==2475== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2475== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2475== Command: ./pipex Makefile cat/ grepppp\ CC outfile
-==2475== 
-==2476== 
-==2476== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2476== Open file descriptor 4:
-==2476==    at 0x497A41D: pipe (pipe.c:29)
-==2476==    by 0x109319: main (main.c:23)
-==2476== 
-==2476== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2476==    <inherited from parent>
-==2476== 
-==2476== 
-==2476== HEAP SUMMARY:
-==2476==     in use at exit: 600 bytes in 22 blocks
-==2476==   total heap usage: 63 allocs, 41 frees, 1,590 bytes allocated
-==2476== 
-==2476== 5 bytes in 1 blocks are definitely lost in loss record 1 of 3
-==2476==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2476==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2476==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2476==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2476==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2476==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2476==    by 0x10942A: cmd_exist (error.c:21)
-==2476==    by 0x1096A9: child_process (exec.c:23)
-==2476==    by 0x109385: main (main.c:31)
-==2476== 
-==2476== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2476==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2476==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2476==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2476==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2476==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2476==    by 0x109418: cmd_exist (error.c:21)
-==2476==    by 0x1096A9: child_process (exec.c:23)
-==2476==    by 0x109385: main (main.c:31)
-==2476== 
-==2476== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2476==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2476==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2476==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2476==    by 0x109418: cmd_exist (error.c:21)
-==2476==    by 0x1096A9: child_process (exec.c:23)
-==2476==    by 0x109385: main (main.c:31)
-==2476== 
-==2476== LEAK SUMMARY:
-==2476==    definitely lost: 173 bytes in 2 blocks
-==2476==    indirectly lost: 427 bytes in 20 blocks
-==2476==      possibly lost: 0 bytes in 0 blocks
-==2476==    still reachable: 0 bytes in 0 blocks
-==2476==         suppressed: 0 bytes in 0 blocks
-==2476== 
-==2476== For lists of detected and suppressed errors, rerun with: -s
-==2476== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-==2475== 
-==2475== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2475== Open file descriptor 3:
-==2475==    at 0x497A41D: pipe (pipe.c:29)
-==2475==    by 0x109319: main (main.c:23)
-==2475== 
-==2475== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2475==    <inherited from parent>
-==2475== 
-==2475== 
-==2475== HEAP SUMMARY:
-==2475==     in use at exit: 606 bytes in 23 blocks
-==2475==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2475== 
-==2475== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2475==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2475==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2475==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2475==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2475==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2475==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2475==    by 0x10942A: cmd_exist (error.c:21)
-==2475==    by 0x10983E: parent_process (exec.c:50)
-==2475==    by 0x1093AE: main (main.c:36)
-==2475== 
-==2475== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2475==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2475==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2475==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2475==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2475==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2475==    by 0x109418: cmd_exist (error.c:21)
-==2475==    by 0x10983E: parent_process (exec.c:50)
-==2475==    by 0x1093AE: main (main.c:36)
-==2475== 
-==2475== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2475==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2475==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2475==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2475==    by 0x109418: cmd_exist (error.c:21)
-==2475==    by 0x10983E: parent_process (exec.c:50)
-==2475==    by 0x1093AE: main (main.c:36)
-==2475== 
-==2475== LEAK SUMMARY:
-==2475==    definitely lost: 179 bytes in 3 blocks
-==2475==    indirectly lost: 427 bytes in 20 blocks
-==2475==      possibly lost: 0 bytes in 0 blocks
-==2475==    still reachable: 0 bytes in 0 blocks
-==2475==         suppressed: 0 bytes in 0 blocks
-==2475== 
-==2475== For lists of detected and suppressed errors, rerun with: -s
-==2475== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364980== Memcheck, a memory error detector
+==1364980== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1364980== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1364980== Command: ./pipex Makefile cat/ grepppp\ CC outfile
+==1364980== 
+==1364980== 
+==1364980== FILE DESCRIPTORS: 5 open at exit.
+==1364980== Open file descriptor 3:
+==1364980==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364980==    by 0x401224: main (main.c:23)
+==1364980== 
+==1364980== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364980==    <inherited from parent>
+==1364980== 
+==1364980== Open file descriptor 2: /dev/pts/0
+==1364980==    <inherited from parent>
+==1364980== 
+==1364980== Open file descriptor 1: /dev/pts/0
+==1364980==    <inherited from parent>
+==1364980== 
+==1364980== Open file descriptor 0: /dev/pts/0
+==1364980==    <inherited from parent>
+==1364980== 
+==1364980== 
+==1364980== HEAP SUMMARY:
+==1364980==     in use at exit: 362 bytes in 16 blocks
+==1364980==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1364980== 
+==1364980== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1364980==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364980==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364980==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364980==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364980==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364980==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364980==    by 0x401328: cmd_exist (error.c:21)
+==1364980==    by 0x401754: parent_process (exec.c:50)
+==1364980==    by 0x4012BA: main (main.c:36)
+==1364980== 
+==1364980== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364980==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364980==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364980==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364980==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364980==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364980==    by 0x40131C: cmd_exist (error.c:21)
+==1364980==    by 0x401754: parent_process (exec.c:50)
+==1364980==    by 0x4012BA: main (main.c:36)
+==1364980== 
+==1364980== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364980==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364980==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364980==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364980==    by 0x40131C: cmd_exist (error.c:21)
+==1364980==    by 0x401754: parent_process (exec.c:50)
+==1364980==    by 0x4012BA: main (main.c:36)
+==1364980== 
+==1364980== LEAK SUMMARY:
+==1364980==    definitely lost: 123 bytes in 3 blocks
+==1364980==    indirectly lost: 239 bytes in 13 blocks
+==1364980==      possibly lost: 0 bytes in 0 blocks
+==1364980==    still reachable: 0 bytes in 0 blocks
+==1364980==         suppressed: 0 bytes in 0 blocks
+==1364980== 
+==1364980== For lists of detected and suppressed errors, rerun with: -s
+==1364980== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364981== 
+==1364981== FILE DESCRIPTORS: 5 open at exit.
+==1364981== Open file descriptor 4:
+==1364981==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364981==    by 0x401224: main (main.c:23)
+==1364981== 
+==1364981== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364981==    <inherited from parent>
+==1364981== 
+==1364981== Open file descriptor 2: /dev/pts/0
+==1364981==    <inherited from parent>
+==1364981== 
+==1364981== Open file descriptor 1: /dev/pts/0
+==1364981==    <inherited from parent>
+==1364981== 
+==1364981== Open file descriptor 0: /dev/pts/0
+==1364981==    <inherited from parent>
+==1364981== 
+==1364981== 
+==1364981== HEAP SUMMARY:
+==1364981==     in use at exit: 356 bytes in 15 blocks
+==1364981==   total heap usage: 42 allocs, 27 frees, 928 bytes allocated
+==1364981== 
+==1364981== 5 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==1364981==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364981==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364981==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364981==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364981==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364981==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364981==    by 0x401328: cmd_exist (error.c:21)
+==1364981==    by 0x4015F4: child_process (exec.c:23)
+==1364981==    by 0x401292: main (main.c:31)
+==1364981== 
+==1364981== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364981==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364981==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364981==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364981==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364981==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364981==    by 0x40131C: cmd_exist (error.c:21)
+==1364981==    by 0x4015F4: child_process (exec.c:23)
+==1364981==    by 0x401292: main (main.c:31)
+==1364981== 
+==1364981== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364981==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364981==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364981==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364981==    by 0x40131C: cmd_exist (error.c:21)
+==1364981==    by 0x4015F4: child_process (exec.c:23)
+==1364981==    by 0x401292: main (main.c:31)
+==1364981== 
+==1364981== LEAK SUMMARY:
+==1364981==    definitely lost: 117 bytes in 2 blocks
+==1364981==    indirectly lost: 239 bytes in 13 blocks
+==1364981==      possibly lost: 0 bytes in 0 blocks
+==1364981==    still reachable: 0 bytes in 0 blocks
+==1364981==         suppressed: 0 bytes in 0 blocks
+==1364981== 
+==1364981== For lists of detected and suppressed errors, rerun with: -s
+==1364981== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -e 
 TEST: 4
 --------------------------------------------------------------------------------
 
-==2482== Memcheck, a memory error detector
-==2482== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2482== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2482== Command: ./pipex Makefile grepppp\ CC /cat/ outfile
-==2482== 
-==2483== 
-==2483== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2483== Open file descriptor 4:
-==2483==    at 0x497A41D: pipe (pipe.c:29)
-==2483==    by 0x109319: main (main.c:23)
-==2483== 
-==2483== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2483==    <inherited from parent>
-==2483== 
-==2483== 
-==2483== HEAP SUMMARY:
-==2483==     in use at exit: 606 bytes in 23 blocks
-==2483==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2483== 
-==2483== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2483==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2483==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2483==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2483==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2483==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2483==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2483==    by 0x10942A: cmd_exist (error.c:21)
-==2483==    by 0x1096A9: child_process (exec.c:23)
-==2483==    by 0x109385: main (main.c:31)
-==2483== 
-==2483== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2483==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2483==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2483==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2483==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2483==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2483==    by 0x109418: cmd_exist (error.c:21)
-==2483==    by 0x1096A9: child_process (exec.c:23)
-==2483==    by 0x109385: main (main.c:31)
-==2483== 
-==2483== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2483==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2483==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2483==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2483==    by 0x109418: cmd_exist (error.c:21)
-==2483==    by 0x1096A9: child_process (exec.c:23)
-==2483==    by 0x109385: main (main.c:31)
-==2483== 
-==2483== LEAK SUMMARY:
-==2483==    definitely lost: 179 bytes in 3 blocks
-==2483==    indirectly lost: 427 bytes in 20 blocks
-==2483==      possibly lost: 0 bytes in 0 blocks
-==2483==    still reachable: 0 bytes in 0 blocks
-==2483==         suppressed: 0 bytes in 0 blocks
-==2483== 
-==2483== For lists of detected and suppressed errors, rerun with: -s
-==2483== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-==2482== 
-==2482== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2482== Open file descriptor 3:
-==2482==    at 0x497A41D: pipe (pipe.c:29)
-==2482==    by 0x109319: main (main.c:23)
-==2482== 
-==2482== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2482==    <inherited from parent>
-==2482== 
-==2482== 
-==2482== HEAP SUMMARY:
-==2482==     in use at exit: 601 bytes in 22 blocks
-==2482==   total heap usage: 63 allocs, 41 frees, 1,611 bytes allocated
-==2482== 
-==2482== 6 bytes in 1 blocks are definitely lost in loss record 1 of 3
-==2482==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2482==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2482==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2482==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2482==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2482==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2482==    by 0x10942A: cmd_exist (error.c:21)
-==2482==    by 0x10983E: parent_process (exec.c:50)
-==2482==    by 0x1093AE: main (main.c:36)
-==2482== 
-==2482== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2482==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2482==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2482==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2482==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2482==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2482==    by 0x109418: cmd_exist (error.c:21)
-==2482==    by 0x10983E: parent_process (exec.c:50)
-==2482==    by 0x1093AE: main (main.c:36)
-==2482== 
-==2482== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2482==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2482==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2482==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2482==    by 0x109418: cmd_exist (error.c:21)
-==2482==    by 0x10983E: parent_process (exec.c:50)
-==2482==    by 0x1093AE: main (main.c:36)
-==2482== 
-==2482== LEAK SUMMARY:
-==2482==    definitely lost: 174 bytes in 2 blocks
-==2482==    indirectly lost: 427 bytes in 20 blocks
-==2482==      possibly lost: 0 bytes in 0 blocks
-==2482==    still reachable: 0 bytes in 0 blocks
-==2482==         suppressed: 0 bytes in 0 blocks
-==2482== 
-==2482== For lists of detected and suppressed errors, rerun with: -s
-==2482== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364987== Memcheck, a memory error detector
+==1364987== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1364987== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1364987== Command: ./pipex Makefile grepppp\ CC /cat/ outfile
+==1364987== 
+==1364987== 
+==1364987== FILE DESCRIPTORS: 5 open at exit.
+==1364987== Open file descriptor 3:
+==1364987==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364987==    by 0x401224: main (main.c:23)
+==1364987== 
+==1364987== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364987==    <inherited from parent>
+==1364987== 
+==1364987== Open file descriptor 2: /dev/pts/0
+==1364987==    <inherited from parent>
+==1364987== 
+==1364987== Open file descriptor 1: /dev/pts/0
+==1364987==    <inherited from parent>
+==1364987== 
+==1364987== Open file descriptor 0: /dev/pts/0
+==1364987==    <inherited from parent>
+==1364987== 
+==1364987== 
+==1364987== HEAP SUMMARY:
+==1364987==     in use at exit: 357 bytes in 15 blocks
+==1364987==   total heap usage: 42 allocs, 27 frees, 942 bytes allocated
+==1364987== 
+==1364987== 6 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==1364987==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364987==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364987==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364987==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364987==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364987==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364987==    by 0x401328: cmd_exist (error.c:21)
+==1364987==    by 0x401754: parent_process (exec.c:50)
+==1364987==    by 0x4012BA: main (main.c:36)
+==1364987== 
+==1364987== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364987==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364987==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364987==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364987==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364987==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364987==    by 0x40131C: cmd_exist (error.c:21)
+==1364987==    by 0x401754: parent_process (exec.c:50)
+==1364987==    by 0x4012BA: main (main.c:36)
+==1364987== 
+==1364987== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364987==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364987==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364987==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364987==    by 0x40131C: cmd_exist (error.c:21)
+==1364987==    by 0x401754: parent_process (exec.c:50)
+==1364987==    by 0x4012BA: main (main.c:36)
+==1364987== 
+==1364987== LEAK SUMMARY:
+==1364987==    definitely lost: 118 bytes in 2 blocks
+==1364987==    indirectly lost: 239 bytes in 13 blocks
+==1364987==      possibly lost: 0 bytes in 0 blocks
+==1364987==    still reachable: 0 bytes in 0 blocks
+==1364987==         suppressed: 0 bytes in 0 blocks
+==1364987== 
+==1364987== For lists of detected and suppressed errors, rerun with: -s
+==1364987== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364990== 
+==1364990== FILE DESCRIPTORS: 5 open at exit.
+==1364990== Open file descriptor 4:
+==1364990==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364990==    by 0x401224: main (main.c:23)
+==1364990== 
+==1364990== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364990==    <inherited from parent>
+==1364990== 
+==1364990== Open file descriptor 2: /dev/pts/0
+==1364990==    <inherited from parent>
+==1364990== 
+==1364990== Open file descriptor 1: /dev/pts/0
+==1364990==    <inherited from parent>
+==1364990== 
+==1364990== Open file descriptor 0: /dev/pts/0
+==1364990==    <inherited from parent>
+==1364990== 
+==1364990== 
+==1364990== HEAP SUMMARY:
+==1364990==     in use at exit: 362 bytes in 16 blocks
+==1364990==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1364990== 
+==1364990== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1364990==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364990==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364990==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364990==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364990==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364990==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364990==    by 0x401328: cmd_exist (error.c:21)
+==1364990==    by 0x4015F4: child_process (exec.c:23)
+==1364990==    by 0x401292: main (main.c:31)
+==1364990== 
+==1364990== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364990==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364990==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364990==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364990==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364990==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364990==    by 0x40131C: cmd_exist (error.c:21)
+==1364990==    by 0x4015F4: child_process (exec.c:23)
+==1364990==    by 0x401292: main (main.c:31)
+==1364990== 
+==1364990== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364990==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364990==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364990==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364990==    by 0x40131C: cmd_exist (error.c:21)
+==1364990==    by 0x4015F4: child_process (exec.c:23)
+==1364990==    by 0x401292: main (main.c:31)
+==1364990== 
+==1364990== LEAK SUMMARY:
+==1364990==    definitely lost: 123 bytes in 3 blocks
+==1364990==    indirectly lost: 239 bytes in 13 blocks
+==1364990==      possibly lost: 0 bytes in 0 blocks
+==1364990==    still reachable: 0 bytes in 0 blocks
+==1364990==         suppressed: 0 bytes in 0 blocks
+==1364990== 
+==1364990== For lists of detected and suppressed errors, rerun with: -s
+==1364990== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -e 
 TEST: 5
 --------------------------------------------------------------------------------
 
-==2489== Memcheck, a memory error detector
-==2489== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2489== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2489== Command: ./pipex Makefile grepppp\ CC ./cat/ outfile
-==2489== 
-==2490== 
-==2490== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2490== Open file descriptor 4:
-==2489== 
-==2489== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2489== Open file descriptor 3:
-==2490==    at 0x497A41D: pipe (pipe.c:29)
-==2490==    by 0x109319: main (main.c:23)
-==2489==    at 0x497A41D: pipe (pipe.c:29)
-==2490== 
-==2489==    by 0x109319: main (main.c:23)
-==2490== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2489== 
-==2490==    <inherited from parent>
-==2489== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2490== 
-==2489==    <inherited from parent>
-==2490== 
-==2489== 
-==2489== 
-==2490== HEAP SUMMARY:
-==2490==     in use at exit: 606 bytes in 23 blocks
-==2490==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2490== 
-==2489== HEAP SUMMARY:
-==2489==     in use at exit: 602 bytes in 22 blocks
-==2489==   total heap usage: 63 allocs, 41 frees, 1,632 bytes allocated
-==2489== 
-==2490== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2490==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2489== 7 bytes in 1 blocks are definitely lost in loss record 1 of 3
-==2490==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2490==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2489==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2490==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2489==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2490==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2489==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2490==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2489==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2490==    by 0x10942A: cmd_exist (error.c:21)
-==2489==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2490==    by 0x1096A9: child_process (exec.c:23)
-==2489==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2490==    by 0x109385: main (main.c:31)
-==2489==    by 0x10942A: cmd_exist (error.c:21)
-==2490== 
-==2489==    by 0x10983E: parent_process (exec.c:50)
-==2490== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2489==    by 0x1093AE: main (main.c:36)
-==2489== 
-==2490==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2490==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2489== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2490==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2489==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2490==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2489==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2490==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2489==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2490==    by 0x109418: cmd_exist (error.c:21)
-==2489==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2490==    by 0x1096A9: child_process (exec.c:23)
-==2489==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2490==    by 0x109385: main (main.c:31)
-==2489==    by 0x109418: cmd_exist (error.c:21)
-==2490== 
-==2489==    by 0x10983E: parent_process (exec.c:50)
-==2490== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2489==    by 0x1093AE: main (main.c:36)
-==2490==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2489== 
-==2490==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2489== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2490==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2489==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2490==    by 0x109418: cmd_exist (error.c:21)
-==2489==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2490==    by 0x1096A9: child_process (exec.c:23)
-==2489==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2490==    by 0x109385: main (main.c:31)
-==2490== 
-==2490== LEAK SUMMARY:
-==2490==    definitely lost: 179 bytes in 3 blocks
-==2489==    by 0x109418: cmd_exist (error.c:21)
-==2489==    by 0x10983E: parent_process (exec.c:50)
-==2489==    by 0x1093AE: main (main.c:36)
-==2489== 
-==2489== LEAK SUMMARY:
-==2489==    definitely lost: 175 bytes in 2 blocks
-==2489==    indirectly lost: 427 bytes in 20 blocks
-==2489==      possibly lost: 0 bytes in 0 blocks
-==2489==    still reachable: 0 bytes in 0 blocks
-==2489==         suppressed: 0 bytes in 0 blocks
-==2489== 
-==2489== For lists of detected and suppressed errors, rerun with: -s
-==2489== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-==2490==    indirectly lost: 427 bytes in 20 blocks
-==2490==      possibly lost: 0 bytes in 0 blocks
-==2490==    still reachable: 0 bytes in 0 blocks
-==2490==         suppressed: 0 bytes in 0 blocks
-==2490== 
-==2490== For lists of detected and suppressed errors, rerun with: -s
-==2490== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364996== Memcheck, a memory error detector
+==1364996== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1364996== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1364996== Command: ./pipex Makefile grepppp\ CC ./cat/ outfile
+==1364996== 
+==1364996== 
+==1364996== FILE DESCRIPTORS: 5 open at exit.
+==1364996== Open file descriptor 3:
+==1364996==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364996==    by 0x401224: main (main.c:23)
+==1364996== 
+==1364996== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364996==    <inherited from parent>
+==1364996== 
+==1364996== Open file descriptor 2: /dev/pts/0
+==1364996==    <inherited from parent>
+==1364996== 
+==1364996== Open file descriptor 1: /dev/pts/0
+==1364996==    <inherited from parent>
+==1364996== 
+==1364996== Open file descriptor 0: /dev/pts/0
+==1364996==    <inherited from parent>
+==1364996== 
+==1364996== 
+==1364996== HEAP SUMMARY:
+==1364996==     in use at exit: 358 bytes in 15 blocks
+==1364996==   total heap usage: 42 allocs, 27 frees, 956 bytes allocated
+==1364996== 
+==1364996== 7 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==1364996==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364996==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364996==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364996==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364996==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364996==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364996==    by 0x401328: cmd_exist (error.c:21)
+==1364996==    by 0x401754: parent_process (exec.c:50)
+==1364996==    by 0x4012BA: main (main.c:36)
+==1364996== 
+==1364996== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364996==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364996==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364996==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364996==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364996==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364996==    by 0x40131C: cmd_exist (error.c:21)
+==1364996==    by 0x401754: parent_process (exec.c:50)
+==1364996==    by 0x4012BA: main (main.c:36)
+==1364996== 
+==1364996== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364996==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364996==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364996==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364996==    by 0x40131C: cmd_exist (error.c:21)
+==1364996==    by 0x401754: parent_process (exec.c:50)
+==1364996==    by 0x4012BA: main (main.c:36)
+==1364996== 
+==1364996== LEAK SUMMARY:
+==1364996==    definitely lost: 119 bytes in 2 blocks
+==1364996==    indirectly lost: 239 bytes in 13 blocks
+==1364996==      possibly lost: 0 bytes in 0 blocks
+==1364996==    still reachable: 0 bytes in 0 blocks
+==1364996==         suppressed: 0 bytes in 0 blocks
+==1364996== 
+==1364996== For lists of detected and suppressed errors, rerun with: -s
+==1364996== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1364998== 
+==1364998== FILE DESCRIPTORS: 5 open at exit.
+==1364998== Open file descriptor 4:
+==1364998==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1364998==    by 0x401224: main (main.c:23)
+==1364998== 
+==1364998== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1364998==    <inherited from parent>
+==1364998== 
+==1364998== Open file descriptor 2: /dev/pts/0
+==1364998==    <inherited from parent>
+==1364998== 
+==1364998== Open file descriptor 1: /dev/pts/0
+==1364998==    <inherited from parent>
+==1364998== 
+==1364998== Open file descriptor 0: /dev/pts/0
+==1364998==    <inherited from parent>
+==1364998== 
+==1364998== 
+==1364998== HEAP SUMMARY:
+==1364998==     in use at exit: 362 bytes in 16 blocks
+==1364998==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1364998== 
+==1364998== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1364998==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364998==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364998==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364998==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364998==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1364998==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1364998==    by 0x401328: cmd_exist (error.c:21)
+==1364998==    by 0x4015F4: child_process (exec.c:23)
+==1364998==    by 0x401292: main (main.c:31)
+==1364998== 
+==1364998== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1364998==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364998==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364998==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364998==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364998==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364998==    by 0x40131C: cmd_exist (error.c:21)
+==1364998==    by 0x4015F4: child_process (exec.c:23)
+==1364998==    by 0x401292: main (main.c:31)
+==1364998== 
+==1364998== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1364998==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1364998==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1364998==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1364998==    by 0x40131C: cmd_exist (error.c:21)
+==1364998==    by 0x4015F4: child_process (exec.c:23)
+==1364998==    by 0x401292: main (main.c:31)
+==1364998== 
+==1364998== LEAK SUMMARY:
+==1364998==    definitely lost: 123 bytes in 3 blocks
+==1364998==    indirectly lost: 239 bytes in 13 blocks
+==1364998==      possibly lost: 0 bytes in 0 blocks
+==1364998==    still reachable: 0 bytes in 0 blocks
+==1364998==         suppressed: 0 bytes in 0 blocks
+==1364998== 
+==1364998== For lists of detected and suppressed errors, rerun with: -s
+==1364998== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -e 
 TEST: 6
 --------------------------------------------------------------------------------
 
-==2496== Memcheck, a memory error detector
-==2496== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2496== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2496== Command: ./pipex Makefile grepppp\ CC cat/ outfile
-==2496== 
-==2497== 
-==2497== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2497== Open file descriptor 4:
-==2497==    at 0x497A41D: pipe (pipe.c:29)
-==2497==    by 0x109319: main (main.c:23)
-==2497== 
-==2497== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2497==    <inherited from parent>
-==2497== 
-==2497== 
-==2497== HEAP SUMMARY:
-==2497==     in use at exit: 606 bytes in 23 blocks
-==2497==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2497== 
-==2497== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2497==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2497==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2497==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2497==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2497==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2497==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2497==    by 0x10942A: cmd_exist (error.c:21)
-==2497==    by 0x1096A9: child_process (exec.c:23)
-==2497==    by 0x109385: main (main.c:31)
-==2497== 
-==2497== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2497==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2497==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2497==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2497==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2497==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2497==    by 0x109418: cmd_exist (error.c:21)
-==2497==    by 0x1096A9: child_process (exec.c:23)
-==2497==    by 0x109385: main (main.c:31)
-==2497== 
-==2497== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2497==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2497==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2497==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2497==    by 0x109418: cmd_exist (error.c:21)
-==2497==    by 0x1096A9: child_process (exec.c:23)
-==2497==    by 0x109385: main (main.c:31)
-==2497== 
-==2497== LEAK SUMMARY:
-==2497==    definitely lost: 179 bytes in 3 blocks
-==2497==    indirectly lost: 427 bytes in 20 blocks
-==2497==      possibly lost: 0 bytes in 0 blocks
-==2497==    still reachable: 0 bytes in 0 blocks
-==2497==         suppressed: 0 bytes in 0 blocks
-==2497== 
-==2497== For lists of detected and suppressed errors, rerun with: -s
-==2497== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-==2496== 
-==2496== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2496== Open file descriptor 3:
-==2496==    at 0x497A41D: pipe (pipe.c:29)
-==2496==    by 0x109319: main (main.c:23)
-==2496== 
-==2496== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2496==    <inherited from parent>
-==2496== 
-==2496== 
-==2496== HEAP SUMMARY:
-==2496==     in use at exit: 600 bytes in 22 blocks
-==2496==   total heap usage: 63 allocs, 41 frees, 1,590 bytes allocated
-==2496== 
-==2496== 5 bytes in 1 blocks are definitely lost in loss record 1 of 3
-==2496==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2496==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2496==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2496==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2496==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2496==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2496==    by 0x10942A: cmd_exist (error.c:21)
-==2496==    by 0x10983E: parent_process (exec.c:50)
-==2496==    by 0x1093AE: main (main.c:36)
-==2496== 
-==2496== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2496==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2496==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2496==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2496==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2496==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2496==    by 0x109418: cmd_exist (error.c:21)
-==2496==    by 0x10983E: parent_process (exec.c:50)
-==2496==    by 0x1093AE: main (main.c:36)
-==2496== 
-==2496== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2496==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2496==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2496==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2496==    by 0x109418: cmd_exist (error.c:21)
-==2496==    by 0x10983E: parent_process (exec.c:50)
-==2496==    by 0x1093AE: main (main.c:36)
-==2496== 
-==2496== LEAK SUMMARY:
-==2496==    definitely lost: 173 bytes in 2 blocks
-==2496==    indirectly lost: 427 bytes in 20 blocks
-==2496==      possibly lost: 0 bytes in 0 blocks
-==2496==    still reachable: 0 bytes in 0 blocks
-==2496==         suppressed: 0 bytes in 0 blocks
-==2496== 
-==2496== For lists of detected and suppressed errors, rerun with: -s
-==2496== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1365006== Memcheck, a memory error detector
+==1365006== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1365006== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1365006== Command: ./pipex Makefile grepppp\ CC cat/ outfile
+==1365006== 
+==1365006== 
+==1365006== FILE DESCRIPTORS: 5 open at exit.
+==1365006== Open file descriptor 3:
+==1365006==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1365006==    by 0x401224: main (main.c:23)
+==1365006== 
+==1365006== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1365006==    <inherited from parent>
+==1365006== 
+==1365006== Open file descriptor 2: /dev/pts/0
+==1365006==    <inherited from parent>
+==1365006== 
+==1365006== Open file descriptor 1: /dev/pts/0
+==1365006==    <inherited from parent>
+==1365006== 
+==1365006== Open file descriptor 0: /dev/pts/0
+==1365006==    <inherited from parent>
+==1365006== 
+==1365006== 
+==1365006== HEAP SUMMARY:
+==1365006==     in use at exit: 356 bytes in 15 blocks
+==1365006==   total heap usage: 42 allocs, 27 frees, 928 bytes allocated
+==1365006== 
+==1365006== 5 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==1365006==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365006==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365006==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365006==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365006==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1365006==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1365006==    by 0x401328: cmd_exist (error.c:21)
+==1365006==    by 0x401754: parent_process (exec.c:50)
+==1365006==    by 0x4012BA: main (main.c:36)
+==1365006== 
+==1365006== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1365006==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365006==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365006==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365006==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365006==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365006==    by 0x40131C: cmd_exist (error.c:21)
+==1365006==    by 0x401754: parent_process (exec.c:50)
+==1365006==    by 0x4012BA: main (main.c:36)
+==1365006== 
+==1365006== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1365006==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365006==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365006==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365006==    by 0x40131C: cmd_exist (error.c:21)
+==1365006==    by 0x401754: parent_process (exec.c:50)
+==1365006==    by 0x4012BA: main (main.c:36)
+==1365006== 
+==1365006== LEAK SUMMARY:
+==1365006==    definitely lost: 117 bytes in 2 blocks
+==1365006==    indirectly lost: 239 bytes in 13 blocks
+==1365006==      possibly lost: 0 bytes in 0 blocks
+==1365006==    still reachable: 0 bytes in 0 blocks
+==1365006==         suppressed: 0 bytes in 0 blocks
+==1365006== 
+==1365006== For lists of detected and suppressed errors, rerun with: -s
+==1365006== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1365007== 
+==1365007== FILE DESCRIPTORS: 5 open at exit.
+==1365007== Open file descriptor 4:
+==1365007==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1365007==    by 0x401224: main (main.c:23)
+==1365007== 
+==1365007== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1365007==    <inherited from parent>
+==1365007== 
+==1365007== Open file descriptor 2: /dev/pts/0
+==1365007==    <inherited from parent>
+==1365007== 
+==1365007== Open file descriptor 1: /dev/pts/0
+==1365007==    <inherited from parent>
+==1365007== 
+==1365007== Open file descriptor 0: /dev/pts/0
+==1365007==    <inherited from parent>
+==1365007== 
+==1365007== 
+==1365007== HEAP SUMMARY:
+==1365007==     in use at exit: 362 bytes in 16 blocks
+==1365007==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1365007== 
+==1365007== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1365007==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365007==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365007==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365007==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365007==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1365007==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1365007==    by 0x401328: cmd_exist (error.c:21)
+==1365007==    by 0x4015F4: child_process (exec.c:23)
+==1365007==    by 0x401292: main (main.c:31)
+==1365007== 
+==1365007== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1365007==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365007==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365007==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365007==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365007==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365007==    by 0x40131C: cmd_exist (error.c:21)
+==1365007==    by 0x4015F4: child_process (exec.c:23)
+==1365007==    by 0x401292: main (main.c:31)
+==1365007== 
+==1365007== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1365007==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365007==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365007==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365007==    by 0x40131C: cmd_exist (error.c:21)
+==1365007==    by 0x4015F4: child_process (exec.c:23)
+==1365007==    by 0x401292: main (main.c:31)
+==1365007== 
+==1365007== LEAK SUMMARY:
+==1365007==    definitely lost: 123 bytes in 3 blocks
+==1365007==    indirectly lost: 239 bytes in 13 blocks
+==1365007==      possibly lost: 0 bytes in 0 blocks
+==1365007==    still reachable: 0 bytes in 0 blocks
+==1365007==         suppressed: 0 bytes in 0 blocks
+==1365007== 
+==1365007== For lists of detected and suppressed errors, rerun with: -s
+==1365007== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -e 
 TEST: 7
 --------------------------------------------------------------------------------
 
-==2503== Memcheck, a memory error detector
-==2503== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2503== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2503== Command: ./pipex /cat/ cat grepppp\ CC outfile
-==2503== 
-==2504== 
-==2504== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2504== Open file descriptor 4:
-==2504==    at 0x497A41D: pipe (pipe.c:29)
-==2504==    by 0x109319: main (main.c:23)
-==2504== 
-==2504== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2504==    <inherited from parent>
-==2504== 
-==2504== 
-==2504== HEAP SUMMARY:
-==2504==     in use at exit: 0 bytes in 0 blocks
-==2504==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==2504== 
-==2504== All heap blocks were freed -- no leaks are possible
-==2504== 
-==2504== For lists of detected and suppressed errors, rerun with: -s
-==2504== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==2503== 
-==2503== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2503== Open file descriptor 3:
-==2503==    at 0x497A41D: pipe (pipe.c:29)
-==2503==    by 0x109319: main (main.c:23)
-==2503== 
-==2503== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2503==    <inherited from parent>
-==2503== 
-==2503== 
-==2503== HEAP SUMMARY:
-==2503==     in use at exit: 606 bytes in 23 blocks
-==2503==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2503== 
-==2503== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2503==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2503==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2503==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2503==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2503==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2503==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2503==    by 0x10942A: cmd_exist (error.c:21)
-==2503==    by 0x10983E: parent_process (exec.c:50)
-==2503==    by 0x1093AE: main (main.c:36)
-==2503== 
-==2503== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2503==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2503==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2503==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2503==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2503==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2503==    by 0x109418: cmd_exist (error.c:21)
-==2503==    by 0x10983E: parent_process (exec.c:50)
-==2503==    by 0x1093AE: main (main.c:36)
-==2503== 
-==2503== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2503==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2503==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2503==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2503==    by 0x109418: cmd_exist (error.c:21)
-==2503==    by 0x10983E: parent_process (exec.c:50)
-==2503==    by 0x1093AE: main (main.c:36)
-==2503== 
-==2503== LEAK SUMMARY:
-==2503==    definitely lost: 179 bytes in 3 blocks
-==2503==    indirectly lost: 427 bytes in 20 blocks
-==2503==      possibly lost: 0 bytes in 0 blocks
-==2503==    still reachable: 0 bytes in 0 blocks
-==2503==         suppressed: 0 bytes in 0 blocks
-==2503== 
-==2503== For lists of detected and suppressed errors, rerun with: -s
-==2503== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1365013== Memcheck, a memory error detector
+==1365013== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1365013== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1365013== Command: ./pipex /cat/ cat grepppp\ CC outfile
+==1365013== 
+==1365015== 
+==1365015== FILE DESCRIPTORS: 5 open at exit.
+==1365015== Open file descriptor 4:
+==1365015==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1365015==    by 0x401224: main (main.c:23)
+==1365015== 
+==1365015== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1365015==    <inherited from parent>
+==1365015== 
+==1365015== Open file descriptor 2: /dev/pts/0
+==1365015==    <inherited from parent>
+==1365015== 
+==1365015== Open file descriptor 1: /dev/pts/0
+==1365015==    <inherited from parent>
+==1365015== 
+==1365015== Open file descriptor 0: /dev/pts/0
+==1365015==    <inherited from parent>
+==1365015== 
+==1365015== 
+==1365015== HEAP SUMMARY:
+==1365015==     in use at exit: 0 bytes in 0 blocks
+==1365015==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==1365015== 
+==1365015== All heap blocks were freed -- no leaks are possible
+==1365015== 
+==1365015== For lists of detected and suppressed errors, rerun with: -s
+==1365015== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1365013== 
+==1365013== FILE DESCRIPTORS: 5 open at exit.
+==1365013== Open file descriptor 3:
+==1365013==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1365013==    by 0x401224: main (main.c:23)
+==1365013== 
+==1365013== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1365013==    <inherited from parent>
+==1365013== 
+==1365013== Open file descriptor 2: /dev/pts/0
+==1365013==    <inherited from parent>
+==1365013== 
+==1365013== Open file descriptor 1: /dev/pts/0
+==1365013==    <inherited from parent>
+==1365013== 
+==1365013== Open file descriptor 0: /dev/pts/0
+==1365013==    <inherited from parent>
+==1365013== 
+==1365013== 
+==1365013== HEAP SUMMARY:
+==1365013==     in use at exit: 362 bytes in 16 blocks
+==1365013==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1365013== 
+==1365013== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1365013==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365013==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365013==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365013==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365013==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1365013==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1365013==    by 0x401328: cmd_exist (error.c:21)
+==1365013==    by 0x401754: parent_process (exec.c:50)
+==1365013==    by 0x4012BA: main (main.c:36)
+==1365013== 
+==1365013== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1365013==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365013==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365013==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365013==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365013==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365013==    by 0x40131C: cmd_exist (error.c:21)
+==1365013==    by 0x401754: parent_process (exec.c:50)
+==1365013==    by 0x4012BA: main (main.c:36)
+==1365013== 
+==1365013== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1365013==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365013==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365013==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365013==    by 0x40131C: cmd_exist (error.c:21)
+==1365013==    by 0x401754: parent_process (exec.c:50)
+==1365013==    by 0x4012BA: main (main.c:36)
+==1365013== 
+==1365013== LEAK SUMMARY:
+==1365013==    definitely lost: 123 bytes in 3 blocks
+==1365013==    indirectly lost: 239 bytes in 13 blocks
+==1365013==      possibly lost: 0 bytes in 0 blocks
+==1365013==    still reachable: 0 bytes in 0 blocks
+==1365013==         suppressed: 0 bytes in 0 blocks
+==1365013== 
+==1365013== For lists of detected and suppressed errors, rerun with: -s
+==1365013== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -e 
 TEST: 8
 --------------------------------------------------------------------------------
 
-==2510== Memcheck, a memory error detector
-==2510== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2510== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2510== Command: ./pipex ./cat/ cat grepppp\ CC outfile
-==2510== 
-==2511== 
-==2511== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2511== Open file descriptor 4:
-==2511==    at 0x497A41D: pipe (pipe.c:29)
-==2511==    by 0x109319: main (main.c:23)
-==2511== 
-==2511== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2511==    <inherited from parent>
-==2511== 
-==2511== 
-==2511== HEAP SUMMARY:
-==2511==     in use at exit: 0 bytes in 0 blocks
-==2511==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==2511== 
-==2511== All heap blocks were freed -- no leaks are possible
-==2511== 
-==2511== For lists of detected and suppressed errors, rerun with: -s
-==2511== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==2510== 
-==2510== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2510== Open file descriptor 3:
-==2510==    at 0x497A41D: pipe (pipe.c:29)
-==2510==    by 0x109319: main (main.c:23)
-==2510== 
-==2510== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2510==    <inherited from parent>
-==2510== 
-==2510== 
-==2510== HEAP SUMMARY:
-==2510==     in use at exit: 606 bytes in 23 blocks
-==2510==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2510== 
-==2510== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2510==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2510==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2510==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2510==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2510==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2510==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2510==    by 0x10942A: cmd_exist (error.c:21)
-==2510==    by 0x10983E: parent_process (exec.c:50)
-==2510==    by 0x1093AE: main (main.c:36)
-==2510== 
-==2510== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2510==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2510==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2510==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2510==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2510==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2510==    by 0x109418: cmd_exist (error.c:21)
-==2510==    by 0x10983E: parent_process (exec.c:50)
-==2510==    by 0x1093AE: main (main.c:36)
-==2510== 
-==2510== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2510==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2510==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2510==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2510==    by 0x109418: cmd_exist (error.c:21)
-==2510==    by 0x10983E: parent_process (exec.c:50)
-==2510==    by 0x1093AE: main (main.c:36)
-==2510== 
-==2510== LEAK SUMMARY:
-==2510==    definitely lost: 179 bytes in 3 blocks
-==2510==    indirectly lost: 427 bytes in 20 blocks
-==2510==      possibly lost: 0 bytes in 0 blocks
-==2510==    still reachable: 0 bytes in 0 blocks
-==2510==         suppressed: 0 bytes in 0 blocks
-==2510== 
-==2510== For lists of detected and suppressed errors, rerun with: -s
-==2510== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1365021== Memcheck, a memory error detector
+==1365021== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1365021== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1365021== Command: ./pipex ./cat/ cat grepppp\ CC outfile
+==1365021== 
+==1365022== 
+==1365022== FILE DESCRIPTORS: 5 open at exit.
+==1365022== Open file descriptor 4:
+==1365022==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1365022==    by 0x401224: main (main.c:23)
+==1365022== 
+==1365022== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1365022==    <inherited from parent>
+==1365022== 
+==1365022== Open file descriptor 2: /dev/pts/0
+==1365022==    <inherited from parent>
+==1365022== 
+==1365022== Open file descriptor 1: /dev/pts/0
+==1365022==    <inherited from parent>
+==1365022== 
+==1365022== Open file descriptor 0: /dev/pts/0
+==1365022==    <inherited from parent>
+==1365022== 
+==1365022== 
+==1365022== HEAP SUMMARY:
+==1365022==     in use at exit: 0 bytes in 0 blocks
+==1365022==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==1365022== 
+==1365022== All heap blocks were freed -- no leaks are possible
+==1365022== 
+==1365022== For lists of detected and suppressed errors, rerun with: -s
+==1365022== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1365021== 
+==1365021== FILE DESCRIPTORS: 5 open at exit.
+==1365021== Open file descriptor 3:
+==1365021==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1365021==    by 0x401224: main (main.c:23)
+==1365021== 
+==1365021== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1365021==    <inherited from parent>
+==1365021== 
+==1365021== Open file descriptor 2: /dev/pts/0
+==1365021==    <inherited from parent>
+==1365021== 
+==1365021== Open file descriptor 1: /dev/pts/0
+==1365021==    <inherited from parent>
+==1365021== 
+==1365021== Open file descriptor 0: /dev/pts/0
+==1365021==    <inherited from parent>
+==1365021== 
+==1365021== 
+==1365021== HEAP SUMMARY:
+==1365021==     in use at exit: 362 bytes in 16 blocks
+==1365021==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1365021== 
+==1365021== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1365021==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365021==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365021==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365021==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365021==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1365021==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1365021==    by 0x401328: cmd_exist (error.c:21)
+==1365021==    by 0x401754: parent_process (exec.c:50)
+==1365021==    by 0x4012BA: main (main.c:36)
+==1365021== 
+==1365021== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1365021==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365021==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365021==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365021==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365021==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365021==    by 0x40131C: cmd_exist (error.c:21)
+==1365021==    by 0x401754: parent_process (exec.c:50)
+==1365021==    by 0x4012BA: main (main.c:36)
+==1365021== 
+==1365021== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1365021==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365021==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365021==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365021==    by 0x40131C: cmd_exist (error.c:21)
+==1365021==    by 0x401754: parent_process (exec.c:50)
+==1365021==    by 0x4012BA: main (main.c:36)
+==1365021== 
+==1365021== LEAK SUMMARY:
+==1365021==    definitely lost: 123 bytes in 3 blocks
+==1365021==    indirectly lost: 239 bytes in 13 blocks
+==1365021==      possibly lost: 0 bytes in 0 blocks
+==1365021==    still reachable: 0 bytes in 0 blocks
+==1365021==         suppressed: 0 bytes in 0 blocks
+==1365021== 
+==1365021== For lists of detected and suppressed errors, rerun with: -s
+==1365021== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -e 
 TEST: 9
 --------------------------------------------------------------------------------
 
-==2517== Memcheck, a memory error detector
-==2517== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2517== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2517== Command: ./pipex cat/ cat grepppp\ CC outfile
-==2517== 
-==2518== 
-==2518== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2518== Open file descriptor 4:
-==2518==    at 0x497A41D: pipe (pipe.c:29)
-==2518==    by 0x109319: main (main.c:23)
-==2518== 
-==2518== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2518==    <inherited from parent>
-==2518== 
-==2518== 
-==2518== HEAP SUMMARY:
-==2518==     in use at exit: 0 bytes in 0 blocks
-==2518==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==2518== 
-==2518== All heap blocks were freed -- no leaks are possible
-==2518== 
-==2518== For lists of detected and suppressed errors, rerun with: -s
-==2518== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==2517== 
-==2517== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2517== Open file descriptor 3:
-==2517==    at 0x497A41D: pipe (pipe.c:29)
-==2517==    by 0x109319: main (main.c:23)
-==2517== 
-==2517== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2517==    <inherited from parent>
-==2517== 
-==2517== 
-==2517== HEAP SUMMARY:
-==2517==     in use at exit: 606 bytes in 23 blocks
-==2517==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2517== 
-==2517== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2517==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2517==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2517==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2517==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2517==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2517==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2517==    by 0x10942A: cmd_exist (error.c:21)
-==2517==    by 0x10983E: parent_process (exec.c:50)
-==2517==    by 0x1093AE: main (main.c:36)
-==2517== 
-==2517== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2517==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2517==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2517==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2517==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2517==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2517==    by 0x109418: cmd_exist (error.c:21)
-==2517==    by 0x10983E: parent_process (exec.c:50)
-==2517==    by 0x1093AE: main (main.c:36)
-==2517== 
-==2517== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2517==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2517==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2517==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2517==    by 0x109418: cmd_exist (error.c:21)
-==2517==    by 0x10983E: parent_process (exec.c:50)
-==2517==    by 0x1093AE: main (main.c:36)
-==2517== 
-==2517== LEAK SUMMARY:
-==2517==    definitely lost: 179 bytes in 3 blocks
-==2517==    indirectly lost: 427 bytes in 20 blocks
-==2517==      possibly lost: 0 bytes in 0 blocks
-==2517==    still reachable: 0 bytes in 0 blocks
-==2517==         suppressed: 0 bytes in 0 blocks
-==2517== 
-==2517== For lists of detected and suppressed errors, rerun with: -s
-==2517== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1365028== Memcheck, a memory error detector
+==1365028== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1365028== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1365028== Command: ./pipex cat/ cat grepppp\ CC outfile
+==1365028== 
+==1365030== 
+==1365030== FILE DESCRIPTORS: 5 open at exit.
+==1365030== Open file descriptor 4:
+==1365030==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1365030==    by 0x401224: main (main.c:23)
+==1365030== 
+==1365030== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1365030==    <inherited from parent>
+==1365030== 
+==1365030== Open file descriptor 2: /dev/pts/0
+==1365030==    <inherited from parent>
+==1365030== 
+==1365030== Open file descriptor 1: /dev/pts/0
+==1365030==    <inherited from parent>
+==1365030== 
+==1365030== Open file descriptor 0: /dev/pts/0
+==1365030==    <inherited from parent>
+==1365030== 
+==1365030== 
+==1365030== HEAP SUMMARY:
+==1365030==     in use at exit: 0 bytes in 0 blocks
+==1365030==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==1365030== 
+==1365030== All heap blocks were freed -- no leaks are possible
+==1365030== 
+==1365030== For lists of detected and suppressed errors, rerun with: -s
+==1365030== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1365028== 
+==1365028== FILE DESCRIPTORS: 5 open at exit.
+==1365028== Open file descriptor 3:
+==1365028==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1365028==    by 0x401224: main (main.c:23)
+==1365028== 
+==1365028== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1365028==    <inherited from parent>
+==1365028== 
+==1365028== Open file descriptor 2: /dev/pts/0
+==1365028==    <inherited from parent>
+==1365028== 
+==1365028== Open file descriptor 1: /dev/pts/0
+==1365028==    <inherited from parent>
+==1365028== 
+==1365028== Open file descriptor 0: /dev/pts/0
+==1365028==    <inherited from parent>
+==1365028== 
+==1365028== 
+==1365028== HEAP SUMMARY:
+==1365028==     in use at exit: 362 bytes in 16 blocks
+==1365028==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1365028== 
+==1365028== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1365028==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365028==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365028==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365028==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365028==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1365028==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1365028==    by 0x401328: cmd_exist (error.c:21)
+==1365028==    by 0x401754: parent_process (exec.c:50)
+==1365028==    by 0x4012BA: main (main.c:36)
+==1365028== 
+==1365028== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1365028==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365028==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365028==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365028==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365028==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365028==    by 0x40131C: cmd_exist (error.c:21)
+==1365028==    by 0x401754: parent_process (exec.c:50)
+==1365028==    by 0x4012BA: main (main.c:36)
+==1365028== 
+==1365028== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1365028==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365028==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365028==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365028==    by 0x40131C: cmd_exist (error.c:21)
+==1365028==    by 0x401754: parent_process (exec.c:50)
+==1365028==    by 0x4012BA: main (main.c:36)
+==1365028== 
+==1365028== LEAK SUMMARY:
+==1365028==    definitely lost: 123 bytes in 3 blocks
+==1365028==    indirectly lost: 239 bytes in 13 blocks
+==1365028==      possibly lost: 0 bytes in 0 blocks
+==1365028==    still reachable: 0 bytes in 0 blocks
+==1365028==         suppressed: 0 bytes in 0 blocks
+==1365028== 
+==1365028== For lists of detected and suppressed errors, rerun with: -s
+==1365028== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -e 
 TEST: 10
 --------------------------------------------------------------------------------
 
-==2524== Memcheck, a memory error detector
-==2524== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==2524== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==2524== Command: ./pipex Makefile cat grepppp\ CC /cat/
-==2524== 
-==2524== 
-==2524== FILE DESCRIPTORS: 5 open (3 std) at exit.
-==2524== Open file descriptor 3:
-==2524==    at 0x497A41D: pipe (pipe.c:29)
-==2524==    by 0x109319: main (main.c:23)
-==2524== 
-==2524== Open file descriptor 9: /home/pvitor-l/projetos_42/pipex/valgrind-out.txt
-==2524==    <inherited from parent>
-==2524== 
-==2524== 
-==2524== HEAP SUMMARY:
-==2524==     in use at exit: 606 bytes in 23 blocks
-==2524==   total heap usage: 64 allocs, 41 frees, 1,664 bytes allocated
-==2524== 
-==2524== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
-==2524==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2524==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2524==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2524==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2524==    by 0x109A63: split_cmd (pipex_functions.c:40)
-==2524==    by 0x109B0E: ft_validade_command (pipex_functions.c:65)
-==2524==    by 0x10942A: cmd_exist (error.c:21)
-==2524==    by 0x10983E: parent_process (exec.c:50)
-==2524==    by 0x1093AE: main (main.c:36)
-==2524== 
-==2524== 427 bytes in 20 blocks are indirectly lost in loss record 2 of 3
-==2524==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2524==    by 0x109EE9: ft_copy (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2524==    by 0x109FDA: ft_len_substring (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2524==    by 0x10A0A1: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2524==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2524==    by 0x109418: cmd_exist (error.c:21)
-==2524==    by 0x10983E: parent_process (exec.c:50)
-==2524==    by 0x1093AE: main (main.c:36)
-==2524== 
-==2524== 595 (168 direct, 427 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==2524==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2524==    by 0x10A078: ft_split (in /home/pvitor-l/projetos_42/pipex/pipex)
-==2524==    by 0x109A08: ft_find_path (pipex_functions.c:25)
-==2524==    by 0x109418: cmd_exist (error.c:21)
-==2524==    by 0x10983E: parent_process (exec.c:50)
-==2524==    by 0x1093AE: main (main.c:36)
-==2524== 
-==2524== LEAK SUMMARY:
-==2524==    definitely lost: 179 bytes in 3 blocks
-==2524==    indirectly lost: 427 bytes in 20 blocks
-==2524==      possibly lost: 0 bytes in 0 blocks
-==2524==    still reachable: 0 bytes in 0 blocks
-==2524==         suppressed: 0 bytes in 0 blocks
-==2524== 
-==2524== For lists of detected and suppressed errors, rerun with: -s
-==2524== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==1365036== Memcheck, a memory error detector
+==1365036== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1365036== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1365036== Command: ./pipex Makefile cat grepppp\ CC /cat/
+==1365036== 
+==1365036== 
+==1365036== FILE DESCRIPTORS: 5 open at exit.
+==1365036== Open file descriptor 3:
+==1365036==    at 0x4971B4B: pipe (syscall-template.S:78)
+==1365036==    by 0x401224: main (main.c:23)
+==1365036== 
+==1365036== Open file descriptor 9: /nfs/homes/pvitor-l/repositorio_projetos/pipex/valgrind-out.txt
+==1365036==    <inherited from parent>
+==1365036== 
+==1365036== Open file descriptor 2: /dev/pts/0
+==1365036==    <inherited from parent>
+==1365036== 
+==1365036== Open file descriptor 1: /dev/pts/0
+==1365036==    <inherited from parent>
+==1365036== 
+==1365036== Open file descriptor 0: /dev/pts/0
+==1365036==    <inherited from parent>
+==1365036== 
+==1365036== 
+==1365036== HEAP SUMMARY:
+==1365036==     in use at exit: 362 bytes in 16 blocks
+==1365036==   total heap usage: 43 allocs, 27 frees, 981 bytes allocated
+==1365036== 
+==1365036== 11 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==1365036==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365036==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365036==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365036==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365036==    by 0x4019B1: split_cmd (pipex_functions.c:40)
+==1365036==    by 0x4019F8: ft_validade_command (pipex_functions.c:65)
+==1365036==    by 0x401328: cmd_exist (error.c:21)
+==1365036==    by 0x401754: parent_process (exec.c:50)
+==1365036==    by 0x4012BA: main (main.c:36)
+==1365036== 
+==1365036== 239 bytes in 13 blocks are indirectly lost in loss record 2 of 3
+==1365036==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365036==    by 0x4020EC: ft_copy (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365036==    by 0x402082: ft_len_substring (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365036==    by 0x401EDA: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365036==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365036==    by 0x40131C: cmd_exist (error.c:21)
+==1365036==    by 0x401754: parent_process (exec.c:50)
+==1365036==    by 0x4012BA: main (main.c:36)
+==1365036== 
+==1365036== 351 (112 direct, 239 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1365036==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1365036==    by 0x401EAD: ft_split (in /nfs/homes/pvitor-l/repositorio_projetos/pipex/pipex)
+==1365036==    by 0x401935: ft_find_path (pipex_functions.c:25)
+==1365036==    by 0x40131C: cmd_exist (error.c:21)
+==1365036==    by 0x401754: parent_process (exec.c:50)
+==1365036==    by 0x4012BA: main (main.c:36)
+==1365036== 
+==1365036== LEAK SUMMARY:
+==1365036==    definitely lost: 123 bytes in 3 blocks
+==1365036==    indirectly lost: 239 bytes in 13 blocks
+==1365036==      possibly lost: 0 bytes in 0 blocks
+==1365036==    still reachable: 0 bytes in 0 blocks
+==1365036==         suppressed: 0 bytes in 0 blocks
+==1365036== 
+==1365036== For lists of detected and suppressed errors, rerun with: -s
+==1365036== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
