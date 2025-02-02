@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:25:21 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/02/01 17:02:36 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:05:46 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 # include <string.h>
 # include "../libft/libft.h"
 
-void	ft_free_split(char **array);
-char	*get_valid_path(char **env, char *cmd);
 char	**ft_find_path(char **env);
 char	*ft_validade_command(char **path, char *cmd);
 char	**split_cmd(char *cmd);
