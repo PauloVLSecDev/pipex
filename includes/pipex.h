@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:25:21 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/02/01 16:05:46 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:40:08 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	parent_process(int *pfd, char **argv, char **env);
 void	child_process(int *pfd, char **argv, char **env);
 void	exit_code(void *args, int code, char *cmd);
 int	cmd_exist(char *cmd, char **env, int *pipe_fd);
+void 	free_array(char **arr);
 void	close_pipe(int *pipe_fd);
 #endif

@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:49:30 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/02/01 16:09:17 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:49:04 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	parent_process(int *pfd, char **argv, char **env)
 	char *path;
 	int	ofd;
 	
+	ofd = open(argv[4], O_WRONLY | O_TRUNC | O_CREAT, 0644);
 	if (check_permission_outfile(argv[4]) != 0)
 		exit(1);
 	if (cmd_exist(argv[3], env, pfd) == 127)
 		exit_code(NULL, 127, argv[3]);
-	ofd = open(argv[4], O_WRONLY | O_TRUNC | O_CREAT, 0644);
 	if (ofd == -1)
 		exit_code(NULL, EXIT_FAILURE, NULL);
 	if (dup2(pfd[0], STDIN_FILENO) == -1 || dup2(ofd, STDOUT_FILENO) == -1)
@@ -65,3 +65,17 @@ void	parent_process(int *pfd, char **argv, char **env)
 	}
 	free(path);
 }
+
+
+void free_array(char **array)
+{
+	int i;
+       
+	i = 0;
+	if (!array)
+		return;
+	while (array[i])
+		free(array[i++]);
+	free(array);
+}
+

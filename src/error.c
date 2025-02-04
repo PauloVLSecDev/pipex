@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:37:41 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/02/01 16:05:18 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:01:47 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 void	close_pipe(int *pipe_fd)
 {
+    if (!pipe_fd)
+    	return;
+    if (pipe_fd[0] >= 0)
 	close(pipe_fd[0]);
-	close(pipe_fd[1]);
+    if (pipe_fd[1] >= 0)
+        close(pipe_fd[1]);
 }
+
 int	cmd_exist(char *cmd, char **env, int *pipe_fd)
 {
 	char *cmd_args;
@@ -29,7 +34,7 @@ int	cmd_exist(char *cmd, char **env, int *pipe_fd)
 	}
 	path_valid = ft_find_path(env);
 	cmd_args = ft_validade_command(path_valid, cmd);
-	free(path_valid);
+	free_array(path_valid);
 	if (!cmd_args || !cmd_args[0])
 	{
 		close_pipe(pipe_fd);

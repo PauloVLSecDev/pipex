@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 19:41:36 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/02/01 15:49:49 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:15:09 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main (int argc, char *argv[], char **env)
 		close_pipe(pipe_fd);
 	pid = fork();
 	if (pid == -1)
-		close_pipe(pipe_fd);
+		exit(-1);
 	if (pid == 0)
 	{
 		close(pipe_fd[0]);
