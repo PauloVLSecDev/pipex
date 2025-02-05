@@ -6,11 +6,10 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:41:33 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/02/04 17:01:03 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:25:48 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include "libft.h"
 
 static	int	ft_count_string(char const *s, char c)
@@ -74,7 +73,7 @@ static	void	ft_len_substring(char **result, const char *s, char c)
 			search_string++;
 		if (search_string - s > start)
 		{
-			size = (sizeof)(search_string - s - start);
+			size = (size_t)(search_string - s - start);
 			result[count_len] = ft_copy(s + start, size);
 			if (!result[count_len])
 				return (ft_free(result, count_len));
@@ -98,7 +97,7 @@ char	**ft_split(char const *s, char c)
 	split[len] = NULL;
 	return (split);
 }
-*/
+/*
 
 include "libft.h"
 
@@ -192,3 +191,4 @@ char    ft_split(char const *s, char c)
     split[len] = NULL;
     return (split);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:58:40 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/02/04 17:56:55 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/02/04 19:56:06 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ char	**split_cmd(char *cmd)
 	if (!cmd)
 		return (NULL);
 	get_commands = ft_split(cmd, ' ');
-	if(!get_commands)
+	if (!get_commands)
 	{
 		free_array(get_commands);
 		return (NULL);
 	}
 	return (get_commands);
 }
+
 static char	*ft_join_path(char *path, char *cmd)
 {
 	char	*join_slash;
@@ -61,7 +62,7 @@ char	*ft_validade_command(char **path, char *cmd)
 {
 	char	*path_found;
 	char	**get_cmd;
-	
+
 	get_cmd = split_cmd(cmd);
 	if (!get_cmd)
 		return (NULL);
@@ -69,9 +70,9 @@ char	*ft_validade_command(char **path, char *cmd)
 	{
 		path_found = ft_join_path(*path, get_cmd[0]);
 		if (!path_found)
-			return(free_array(get_cmd), NULL);
+			return (free_array(get_cmd), NULL);
 		if (access(path_found, F_OK | X_OK) == 0)
-			return(free_array(get_cmd), path_found);
+			return (free_array(get_cmd), path_found);
 		free(path_found);
 		path++;
 	}

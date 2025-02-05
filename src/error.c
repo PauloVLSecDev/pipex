@@ -6,26 +6,28 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:37:41 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/02/04 18:01:47 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:49:51 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/pipex.h"
+#include "../includes/pipex.h"
 
 void	close_pipe(int *pipe_fd)
 {
-    if (!pipe_fd)
-    	return;
-    if (pipe_fd[0] >= 0)
-	close(pipe_fd[0]);
-    if (pipe_fd[1] >= 0)
-        close(pipe_fd[1]);
+	if (pipe_fd)
+	{
+		close(pipe_fd[0]);
+		close(pipe_fd[1]);
+		return ;
+	}
+	else
+		return ;
 }
 
 int	cmd_exist(char *cmd, char **env, int *pipe_fd)
 {
-	char *cmd_args;
-	char **path_valid;
+	char	*cmd_args;
+	char	**path_valid;
 
 	if (!cmd || !*cmd)
 	{
@@ -39,53 +41,33 @@ int	cmd_exist(char *cmd, char **env, int *pipe_fd)
 	{
 		close_pipe(pipe_fd);
 		free(cmd_args);
-		return(127);
+		return (127);
 	}
 	return (0);
 }
-int check_permission_infile(char *infile)
+
+int	check_permission_infile(char *infile, int fd_in)
 {
-	//infile need only permission for read
-	if (access(infile, F_OK) == -1)
+	if (fd_in == -1)
 	{
-		ft_putstr_fd(infile, 2);
-		ft_putstr_fd(": No such file or directory\n", 2);
-		return (2);
-	}
-	if (access(infile, R_OK) == -1)
-	{
-		ft_putstr_fd(infile, 2);
-		ft_putstr_fd(": Permission denied\n", 2);
+		ft_printf("%s : ", infile);
+		perror("");
 		return (1);
 	}
 	return (0);
 }
 
-int	check_permission_outfile(char *outfile)
+int	check_permission_outfile(char *outfile, int fd_out)
 {
-	if (access(outfile, F_OK) == -1)
+	if (fd_out == -1)
 	{
-		if (ft_strncmp(outfile, "/", ft_strlen(outfile)) == 0)
-		{
-			ft_putstr_fd(outfile, 2);
-			ft_putstr_fd(": Is directory \n", 2);
-			return (1);
-		}
-		else
-		{
-			ft_putstr_fd(outfile, 2);
-			ft_putstr_fd(": No such file or directory\n", 2);
-		}
-		return (0);
-	}
-	if (access(outfile, W_OK | F_OK) == -1)
-	{
-		ft_putstr_fd(outfile, 2);
-		ft_putstr_fd(": Permission denied\n", 2);
+		ft_printf("%s : ", outfile);
+		perror("");
 		return (1);
 	}
 	return (0);
 }
+
 void	exit_code(void *args, int code, char *cmd)
 {
 	if (code == 127)
